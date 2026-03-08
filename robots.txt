@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://demo-aquaservis.netlify.app/sitemap.xml
+
+# Private pages
+Disallow: /admin
+Disallow: /admin.html

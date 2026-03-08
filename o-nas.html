@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O nás – AquaServis Praha | Profesionální péče o bazény od roku 2014</title>
+    <meta name="description" content="AquaServis Praha — rodinná firma s více než 10 lety zkušeností. Certifikovaní technici, osobní přístup a garance spokojenosti. Praha a Středočeský kraj.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://demo-aquaservis.netlify.app/o-nas.html">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="O nás – AquaServis Praha">
+    <meta property="og:description" content="Rodinná firma s více než 10 lety zkušeností v péči o bazény.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:url" content="https://demo-aquaservis.netlify.app/o-nas.html">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=1200&h=630&fit=crop">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230ea5e9'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='15' fill='url(%23g)'/%3E%3Cpath d='M8 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M8 13c2-3 4-3 6 0s4 3 6 0 4-3 6 0' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0284c7">
+
+    <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css?v=11">
+    <link rel="stylesheet" href="css/hero.css?v=11">
+    <link rel="stylesheet" href="css/pages.css?v=11">
+    <link rel="stylesheet" href="css/cookies.css?v=11">
+
+    <!-- Structured Data: BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Domů", "item": "https://demo-aquaservis.netlify.app/"},
+            {"@type": "ListItem", "position": 2, "name": "O nás", "item": "https://demo-aquaservis.netlify.app/o-nas.html"}
+        ]
+    }
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Přejít na obsah</a>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+                    <circle cx="16" cy="16" r="15" fill="url(#logoGrad)"/>
+                    <path d="M8 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                    <path d="M8 13c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".5"/>
+                </svg>
+                AquaServis
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="o-nas.html" class="active">O nás</a>
+                <a href="sluzby.html">Služby</a>
+                <a href="cenik.html">Ceník</a>
+                <a href="galerie.html">Galerie</a>
+                <a href="kontakt.html" class="nav-cta-btn btn btn-sm btn-primary">Kontakt</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Přepnout tmavý režim" title="Tmavý/světlý režim">
+                    <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <a href="registrace.html" class="nav-user-btn" aria-label="Přihlášení / Registrace" title="Přihlášení">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+    <!-- ===================== PAGE HEADER ===================== -->
+    <section class="page-header" style="--page-bg: url('https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=1600&h=900&fit=crop')">
+        <!-- Bubbles -->
+        <div class="page-header-bubbles">
+            <div class="page-header-bubble" style="left:10%;width:20px;height:20px;animation-duration:8s;animation-delay:0s"></div>
+            <div class="page-header-bubble" style="left:28%;width:28px;height:28px;animation-duration:14s;animation-delay:1.5s"></div>
+            <div class="page-header-bubble" style="left:42%;width:12px;height:12px;animation-duration:10s;animation-delay:0.5s"></div>
+            <div class="page-header-bubble" style="left:58%;width:22px;height:22px;animation-duration:12s;animation-delay:3s"></div>
+            <div class="page-header-bubble" style="left:72%;width:16px;height:16px;animation-duration:9s;animation-delay:2s"></div>
+            <div class="page-header-bubble" style="left:85%;width:24px;height:24px;animation-duration:11s;animation-delay:4s"></div>
+            <div class="page-header-bubble" style="left:18%;width:8px;height:8px;animation-duration:16s;animation-delay:5s"></div>
+        </div>
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">Domů</a>
+                <span class="breadcrumb-sep">/</span>
+                <span class="breadcrumb-current">O nás</span>
+            </nav>
+            <h1 class="page-title animate-on-scroll">O nás</h1>
+            <p class="page-subtitle animate-on-scroll">Rodinná firma s vášní pro čistou vodu a spokojené zákazníky.</p>
+        </div>
+        <!-- Waves -->
+        <div class="page-header-waves">
+            <div class="page-header-wave page-header-wave--1"></div>
+            <div class="page-header-wave page-header-wave--2"></div>
+        </div>
+    </section>
+
+    <!-- ===================== COMPANY STORY ===================== -->
+    <section class="section">
+        <div class="container">
+            <div class="about-story-grid animate-on-scroll">
+                <div class="about-story-content">
+                    <span class="section-tag">Náš příběh</span>
+                    <h2>Od dvou nadšenců k týmu profesionálů</h2>
+                    <p>AquaServis Praha vznikl v roce 2014 jako malá rodinná firma zaměřená na údržbu bazénů v Praze. Začínali jsme ve dvou — s jedním dodávkovým autem a odhodláním dělat věci pořádně.</p>
+                    <p>Postupem let jsme rozšířili tým o certifikované techniky a specialisty na bazénovou chemii. Dnes se staráme o více než 2 500 bazénů po celé Praze a Středočeském kraji.</p>
+                    <p>Naše filozofie zůstává od začátku stejná: <strong>osobní přístup, kvalitní práce a férové ceny</strong>. Každý bazén je pro nás výzvou a každý spokojený zákazník tou nejlepší odměnou.</p>
+                    <div class="about-story-stats">
+                        <div class="about-story-stat">
+                            <span class="about-story-stat-number">12</span>
+                            <span class="about-story-stat-label">let na trhu</span>
+                        </div>
+                        <div class="about-story-stat">
+                            <span class="about-story-stat-number">2 500+</span>
+                            <span class="about-story-stat-label">ošetřených bazénů</span>
+                        </div>
+                        <div class="about-story-stat">
+                            <span class="about-story-stat-number">98 %</span>
+                            <span class="about-story-stat-label">spokojených klientů</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-story-image img-hover-zoom lightbox-trigger">
+                    <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=800&h=600&fit=crop" alt="Tým AquaServis při práci u bazénu" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== VALUES ===================== -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Hodnoty</span>
+                <h2 class="section-title">Co nás definuje</h2>
+                <p class="section-desc">Tyto hodnoty jsou základem všeho, co děláme.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">
+                        <svg width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                            <path d="M16 4l4 8h8l-6.5 5 2.5 8L16 20l-8 5 2.5-8L4 12h8z" fill="#0284c7" opacity=".2" stroke="#0284c7" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Kvalita</h3>
+                    <p>Používáme pouze certifikované přípravky a ověřené postupy. Na kvalitě nikdy nešetříme.</p>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">
+                        <svg width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                            <circle cx="16" cy="16" r="12" fill="#0284c7" opacity=".2" stroke="#0284c7" stroke-width="2"/>
+                            <path d="M10 16l4 4 8-8" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Spolehlivost</h3>
+                    <p>Dodržujeme domluvené termíny a komunikujeme transparentně. Na nás se můžete spolehnout.</p>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">
+                        <svg width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                            <rect x="4" y="4" width="24" height="24" rx="6" fill="#0284c7" opacity=".2" stroke="#0284c7" stroke-width="2"/>
+                            <path d="M16 10v6l4 2" stroke="#0284c7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Zkušenosti</h3>
+                    <p>Více než 10 let praxe a přes 2 500 spokojených zákazníků. Každý problém jsme už řešili.</p>
+                </div>
+                <div class="value-card animate-on-scroll">
+                    <div class="value-icon">
+                        <svg width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                            <path d="M16 4c-3 4-8 8-8 14a8 8 0 0016 0c0-6-5-10-8-14z" fill="#0284c7" opacity=".2" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Osobní přístup</h3>
+                    <p>Každý bazén je jiný. Řešení šijeme na míru vašim potřebám a vašemu bazénu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== TEAM ===================== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Tým</span>
+                <h2 class="section-title">Seznamte se s naším týmem</h2>
+                <p class="section-desc">Za každým čistým bazénem stojí tým zkušených profesionálů.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar-placeholder">JN</div>
+                    <h3>Jan Novák</h3>
+                    <span class="team-role">Zakladatel a ředitel</span>
+                    <p>Založil AquaServis v roce 2014. Přes 15 let zkušeností v oboru bazénové technologie.</p>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar-placeholder">PD</div>
+                    <h3>Petra Dvořáková</h3>
+                    <span class="team-role">Vedoucí technik</span>
+                    <p>Certifikovaná specialistka na bazénovou filtraci a technologii. V týmu od roku 2016.</p>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar-placeholder">MS</div>
+                    <h3>Martin Svoboda</h3>
+                    <span class="team-role">Specialista na úpravu vody</span>
+                    <p>Expert na bazénovou chemii a kvalitu vody. Certifikace od předních výrobců přípravků.</p>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-avatar-placeholder">LK</div>
+                    <h3>Lucie Králová</h3>
+                    <span class="team-role">Zákaznický servis</span>
+                    <p>Stará se o komunikaci s klienty, plánování servisů a koordinaci týmu v terénu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== CERTIFICATIONS ===================== -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Certifikace</span>
+                <h2 class="section-title">Proč nám můžete důvěřovat</h2>
+            </div>
+            <div class="certifications-grid">
+                <div class="certification-card animate-on-scroll" onclick="this.classList.toggle('active')">
+                    <div class="certification-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                            <circle cx="20" cy="20" r="18" fill="#0284c7" opacity=".1" stroke="#0284c7" stroke-width="2"/>
+                            <path d="M20 10l3 6h6l-5 4 2 6-6-4-6 4 2-6-5-4h6z" fill="#0284c7" opacity=".3" stroke="#0284c7" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h4>Certifikovaní technici</h4>
+                    <p>Pravidelná školení a certifikace pro práci s bazénovou technologií.</p>
+                    <div class="certification-detail">
+                        <p>Všichni naši technici absolvují pravidelné školení u předních výrobců bazénové technologie — Hayward, Astralpool a Steinbach. Disponujeme certifikáty pro práci s filtracemi, tepelnými čerpadly i automatickými dávkovači chemie.</p>
+                    </div>
+                    <span class="certification-expand">
+                        <span class="expand-text">Zjistit více</span>
+                        <span class="collapse-text">Skrýt</span>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 5 7 9 11 5"/></svg>
+                    </span>
+                </div>
+                <div class="certification-card animate-on-scroll" onclick="this.classList.toggle('active')">
+                    <div class="certification-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                            <circle cx="20" cy="20" r="18" fill="#0284c7" opacity=".1" stroke="#0284c7" stroke-width="2"/>
+                            <path d="M20 10a6 6 0 00-6 6v3a4 4 0 00-2 3v4a2 2 0 002 2h12a2 2 0 002-2v-4a4 4 0 00-2-3v-3a6 6 0 00-6-6z" fill="#0284c7" opacity=".3" stroke="#0284c7" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h4>Pojištění odpovědnosti</h4>
+                    <p>Plně pojištěni pro případ škody. Vaše investice je v bezpečí.</p>
+                    <div class="certification-detail">
+                        <p>Jsme pojištěni na profesní odpovědnost do výše 5 000 000 Kč. Pokud by při servisních pracích došlo k poškození vašeho majetku, celou škodu pokryje naše pojistka. Pracujeme s pojišťovnou Kooperativa.</p>
+                    </div>
+                    <span class="certification-expand">
+                        <span class="expand-text">Zjistit více</span>
+                        <span class="collapse-text">Skrýt</span>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 5 7 9 11 5"/></svg>
+                    </span>
+                </div>
+                <div class="certification-card animate-on-scroll" onclick="this.classList.toggle('active')">
+                    <div class="certification-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                            <circle cx="20" cy="20" r="18" fill="#0284c7" opacity=".1" stroke="#0284c7" stroke-width="2"/>
+                            <path d="M20 12c-2 4-6 7-6 12a6 6 0 0012 0c0-5-4-8-6-12z" fill="#0284c7" opacity=".3" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h4>Ekologické přípravky</h4>
+                    <p>Používáme šetrné přípravky bezpečné pro kůži i životní prostředí.</p>
+                    <div class="certification-detail">
+                        <p>Veškerá bazénová chemie, kterou používáme, je certifikovaná dle evropských norem a je bezpečná pro kůži, oči i životní prostředí. Nabízíme i bezchlorové varianty na bázi aktivního kyslíku pro citlivou pokožku a rodiny s malými dětmi.</p>
+                    </div>
+                    <span class="certification-expand">
+                        <span class="expand-text">Zjistit více</span>
+                        <span class="collapse-text">Skrýt</span>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 5 7 9 11 5"/></svg>
+                    </span>
+                </div>
+                <div class="certification-card animate-on-scroll" onclick="this.classList.toggle('active')">
+                    <div class="certification-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                            <circle cx="20" cy="20" r="18" fill="#0284c7" opacity=".1" stroke="#0284c7" stroke-width="2"/>
+                            <path d="M13 20l5 5 9-9" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h4>Garance spokojenosti</h4>
+                    <p>Nejste spokojeni? Přijedeme a opravíme to zdarma. Bez výmluv.</p>
+                    <div class="certification-detail">
+                        <p>Pokud po naší práci nejste 100% spokojeni, přijedeme znovu a vše opravíme na naše náklady. Žádné skryté poplatky, žádné výmluvy. Vaše spokojenost je pro nás prioritou — proto se k nám 92 % zákazníků vrací.</p>
+                    </div>
+                    <span class="certification-expand">
+                        <span class="expand-text">Zjistit více</span>
+                        <span class="collapse-text">Skrýt</span>
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="3 5 7 9 11 5"/></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ===================== CTA + NEWSLETTER ===================== -->
+    <div class="cta-newsletter-wrapper">
+        <!-- Waves at TOP (flipped) -->
+        <div class="cta-waves cta-waves--top" aria-hidden="true">
+            <div class="cta-wave cta-wave--1"></div>
+            <div class="cta-wave cta-wave--2"></div>
+        </div>
+        <!-- Bubbles (shared) -->
+        <div class="cta-bubbles" aria-hidden="true">
+            <div class="cta-bubble" style="left: 8%; width: 18px; height: 18px; animation-duration: 10s; animation-delay: 0s; bottom: -20px;"></div>
+            <div class="cta-bubble" style="left: 22%; width: 30px; height: 30px; animation-duration: 14s; animation-delay: 2s; bottom: -30px;"></div>
+            <div class="cta-bubble" style="left: 38%; width: 14px; height: 14px; animation-duration: 9s; animation-delay: 4s; bottom: -14px;"></div>
+            <div class="cta-bubble" style="left: 52%; width: 24px; height: 24px; animation-duration: 12s; animation-delay: 1s; bottom: -24px;"></div>
+            <div class="cta-bubble" style="left: 68%; width: 10px; height: 10px; animation-duration: 16s; animation-delay: 3s; bottom: -10px;"></div>
+            <div class="cta-bubble" style="left: 82%; width: 36px; height: 36px; animation-duration: 18s; animation-delay: 5s; bottom: -36px;"></div>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="cta-banner">
+            <div class="container">
+                <h2 class="animate-on-scroll">Připraveni na dokonale čistý bazén?</h2>
+                <p class="animate-on-scroll">Nechte péči o bazén na profesionálech a užívejte si léto bez starostí.</p>
+                <div class="cta-banner-btns animate-on-scroll">
+                    <a href="kontakt.html" class="btn btn-lg btn-white">Nezávazná poptávka</a>
+                    <a href="tel:+420601234567" class="btn btn-lg btn-outline-white">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                            <path d="M16.5 12.69v2.5a1.67 1.67 0 01-1.82 1.67 16.5 16.5 0 01-7.19-2.56 16.25 16.25 0 01-5-5A16.5 16.5 0 01.93 2.11 1.67 1.67 0 012.59.5h2.5A1.67 1.67 0 016.76 2c.11.8.3 1.59.58 2.34a1.67 1.67 0 01-.38 1.76l-1.06 1.06a13.33 13.33 0 005 5l1.06-1.06a1.67 1.67 0 011.76-.38c.75.27 1.54.47 2.34.58a1.67 1.67 0 011.44 1.7z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Zavolat
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="cta-newsletter-divider"></div>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-inner">
+                    <div class="newsletter-text">
+                        <h3>Přihlaste se k odběru novinek</h3>
+                        <p>Získejte tipy na údržbu bazénu, sezónní akce a novinky přímo do emailu.</p>
+                    </div>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Váš e-mail" required aria-label="E-mail pro newsletter">
+                        <button type="submit" class="btn btn-primary btn-lg">Odebírat</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="index.html" class="nav-logo">
+                    <svg width="40" height="40" viewBox="0 0 32 32" fill="none">
+                        <defs><linearGradient id="logoGradF" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
+                        <circle cx="16" cy="16" r="15" fill="url(#logoGradF)"/>
+                        <path d="M8 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        <path d="M8 13c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".5"/>
+                    </svg>
+                    AquaServis
+                </a>
+                <div class="footer-top-cta">
+                    <a href="kontakt.html" class="btn btn-sm btn-primary">Nezávazná poptávka</a>
+                    <a href="tel:+420601234567" class="btn btn-sm btn-outline-white" style="border: 1px solid rgba(255,255,255,.3); color: white;">+420 601 234 567</a>
+                </div>
+            </div>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <p class="footer-desc">Profesionální péče o bazény v Praze a Středočeském kraji. Certifikovaní technici s více než 10 lety zkušeností zajistí dokonalě čistý a bezpečný bazén po celý rok.</p>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <a href="mailto:info@aquaservis-demo.cz">info@aquaservis-demo.cz</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Technická 15, 160 00 Praha 6
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Služby</h4>
+                    <ul>
+                        <li><a href="sluzby.html">Čištění bazénů</a></li>
+                        <li><a href="sluzby.html">Servis filtrace</a></li>
+                        <li><a href="sluzby.html">Úprava vody</a></li>
+                        <li><a href="sluzby.html">Zazimování</a></li>
+                        <li><a href="sluzby.html">Bazény na klíč</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Společnost</h4>
+                    <ul>
+                        <li><a href="o-nas.html">O nás</a></li>
+                        <li><a href="cenik.html">Ceník</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                        <li><a href="registrace.html">Registrace</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Provozní doba</h4>
+                    <ul>
+                        <li>Po–Pá: 8:00 – 18:00</li>
+                        <li>So: 9:00 – 14:00</li>
+                        <li>Ne: Zavřeno</li>
+                    </ul>
+                    <h4 style="margin-top: 24px;">Právní</h4>
+                    <ul>
+                        <li><a href="smluvni-podminky.html">Smluvní podmínky</a></li>
+                        <li><a href="smluvni-podminky.html#ochrana-udaju">Ochrana osobních údajů (GDPR)</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-wave"></div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025–2026 AquaServis Praha. Všechna práva vyhrazena.</p>
+                <div class="footer-bottom-links">
+                    <span>Demo — <a href="https://webzitra.cz" target="_blank" rel="noopener">WebZítra</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Zpět nahoru">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <!-- ===================== COOKIE BANNER ===================== -->
+    <div id="cookie-banner" class="cookie-banner"></div>
+
+    <!-- Scripts -->
+    <script src="js/cookies.js?v=11" defer></script>
+    <script src="js/main.js?v=11" defer></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Pretty URLs
+[[redirects]]
+  from = "/sluzby"
+  to = "/sluzby.html"
+  status = 200
+
+[[redirects]]
+  from = "/cenik"
+  to = "/cenik.html"
+  status = 200
+
+[[redirects]]
+  from = "/galerie"
+  to = "/galerie.html"
+  status = 200
+
+[[redirects]]
+  from = "/o-nas"
+  to = "/o-nas.html"
+  status = 200
+
+[[redirects]]
+  from = "/kontakt"
+  to = "/kontakt.html"
+  status = 200
+
+[[redirects]]
+  from = "/registrace"
+  to = "/registrace.html"
+  status = 200
+
+[[redirects]]
+  from = "/smluvni-podminky"
+  to = "/smluvni-podminky.html"
+  status = 200
+
+[[redirects]]
+  from = "/reklamacni-rad"
+  to = "/reklamacni-rad.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+
+# Custom 404
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

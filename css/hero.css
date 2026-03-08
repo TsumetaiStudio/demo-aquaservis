@@ -1,0 +1,211 @@
+/* ========================================================
+   AquaServis — Hero Section with Water Animation
+   ======================================================== */
+
+/* ─── Hero Override for Homepage ─── */
+.hero-water {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, #0c4a6e 0%, #0369a1 30%, #0284c7 50%, #38bdf8 75%, #bae6fd 100%);
+    overflow: hidden;
+    padding-top: var(--nav-height);
+}
+
+/* Remove default hero ::after pseudo-element (::before is used for shimmer) */
+.hero-water::after {
+    display: none;
+}
+
+/* ─── Hero Content (white text on dark bg) ─── */
+.hero-water .hero-content {
+    position: relative;
+    z-index: 10;
+}
+.hero-water .hero-badge {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.25);
+    color: white;
+    backdrop-filter: blur(8px);
+}
+.hero-water .hero-title {
+    color: white;
+}
+.hero-water .hero-title .text-gradient {
+    background: linear-gradient(135deg, #bae6fd, #22d3ee, #67e8f9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero-water .hero-text {
+    color: rgba(255,255,255,0.85);
+}
+.hero-water .hero-trust-item {
+    color: rgba(255,255,255,0.7);
+}
+.hero-water .hero-trust-item svg {
+    color: #67e8f9;
+}
+.hero-water .btn-ghost {
+    border-color: rgba(255,255,255,0.4);
+    color: white;
+}
+.hero-water .btn-ghost:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: white;
+}
+.hero-water .stat-card {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.hero-water .stat-card:hover {
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+.hero-water .stat-number {
+    color: white;
+}
+.hero-water .stat-label {
+    color: rgba(255,255,255,0.7);
+}
+
+/* ─── Waves Container ─── */
+.hero-waves {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.hero-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat-x;
+    background-size: 50% 100%;
+    background-position: 0 bottom;
+}
+
+/* Wave 1 - front, most visible */
+.hero-wave--1 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,120 L0,120 Z' fill='%23ffffff'/%3E%3C/svg%3E");
+    animation: wave-slide 7s linear infinite;
+    opacity: 1;
+    z-index: 3;
+}
+
+/* Wave 2 - middle */
+.hero-wave--2 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,40 C150,100 350,0 600,50 C850,100 1050,10 1200,40 L1200,120 L0,120 Z' fill='rgba(255,255,255,0.5)'/%3E%3C/svg%3E");
+    animation: wave-slide 11s linear infinite reverse;
+    opacity: 0.7;
+    z-index: 2;
+    bottom: 5px;
+}
+
+/* Wave 3 - back, most subtle */
+.hero-wave--3 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,80 C300,20 500,100 700,40 C900,0 1100,80 1200,50 L1200,120 L0,120 Z' fill='rgba(255,255,255,0.3)'/%3E%3C/svg%3E");
+    animation: wave-slide 15s linear infinite;
+    opacity: 0.5;
+    z-index: 1;
+    bottom: 10px;
+}
+
+/* ─── Floating Bubbles ─── */
+.hero-bubbles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero-bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
+    border: 1px solid rgba(255,255,255,0.15);
+    animation: bubble-float linear infinite;
+}
+
+/* ─── Shimmer overlay ─── */
+.hero-water::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 40%,
+        rgba(255,255,255,0.03) 45%,
+        rgba(255,255,255,0.05) 50%,
+        rgba(255,255,255,0.03) 55%,
+        transparent 60%
+    );
+    background-size: 200% 200%;
+    animation: shimmer 8s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ─── Hero Background Photo Support ─── */
+.hero-water-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.hero-water-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(12,74,110,0.82) 0%, rgba(3,105,161,0.75) 30%, rgba(2,132,199,0.70) 50%, rgba(56,189,248,0.60) 75%, rgba(186,230,253,0.50) 100%);
+    z-index: 1;
+}
+
+/* ─── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+    .hero-wave,
+    .hero-bubble,
+    .hero-water::before {
+        animation: none !important;
+    }
+    .hero-wave--1 { transform: none; }
+    .hero-wave--2 { transform: none; }
+    .hero-wave--3 { transform: none; }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+    .hero-waves { height: 80px; }
+    .hero-bubble { display: none; }
+    .hero-bubble:nth-child(-n+4) { display: block; }
+}
+
+@media (max-width: 480px) {
+    .hero-waves { height: 60px; }
+}
+
+/* ===================== DARK MODE — Hero Waves ===================== */
+
+/* Waves transition to dark background instead of white */
+[data-theme="dark"] .hero-wave--1 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C200,120 400,0 600,60 C800,120 1000,0 1200,60 L1200,120 L0,120 Z' fill='%230f172a'/%3E%3C/svg%3E");
+}
+[data-theme="dark"] .hero-wave--2 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,40 C150,100 350,0 600,50 C850,100 1050,10 1200,40 L1200,120 L0,120 Z' fill='rgba(15,23,42,0.5)'/%3E%3C/svg%3E");
+}
+[data-theme="dark"] .hero-wave--3 {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,80 C300,20 500,100 700,40 C900,0 1100,80 1200,50 L1200,120 L0,120 Z' fill='rgba(15,23,42,0.3)'/%3E%3C/svg%3E");
+}
