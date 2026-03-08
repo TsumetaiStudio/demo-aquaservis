@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    // ─── DOM References ───
+    // ─── DOM Reference ───
     const navbar = document.getElementById('navbar');
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
@@ -9,11 +9,12 @@
     const contactForm = document.getElementById('contactForm');
     const formSuccess = document.getElementById('formSuccess');
     const submitBtn = document.getElementById('submitBtn');
+    const scrollProgress = document.getElementById('scrollProgress');
     const faqItems = document.querySelectorAll('.faq-item');
-    const statNumbers = document.querySelectorAll('.hero-stat-number');
+    const statNumbers = document.querySelectorAll('.stat-number');
     const animateElements = document.querySelectorAll('.animate-on-scroll');
 
-    // ─── Mobile Nav Overlay ───
+    // ─── Mobilní navigace — overlay ───
     let navOverlay = null;
 
     function createOverlay() {
@@ -45,20 +46,28 @@
         navToggle.classList.contains('active') ? closeMenu() : openMenu();
     }
 
-    // ─── Navbar Scroll Effect ───
-    let lastScroll = 0;
+    // ─── Scroll progress bar ───
+    function updateScrollProgress() {
+        if (!scrollProgress) return;
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight <= 0) { scrollProgress.style.width = '0'; return; }
+        var percent = (scrollTop / docHeight) * 100;
+        scrollProgress.style.width = percent + '%';
+    }
+
+    // ─── Navbar scroll efekt ───
     function handleNavScroll() {
-        const scrollY = window.scrollY;
-        if (scrollY > 50) {
+        if (window.scrollY > 20) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
-        lastScroll = scrollY;
     }
 
-    // ─── Scroll to Top Button ───
+    // ─── Scroll-to-top viditelnost ───
     function handleScrollTopVisibility() {
+        if (!scrollTopBtn) return;
         if (window.scrollY > 500) {
             scrollTopBtn.classList.add('visible');
         } else {
@@ -66,65 +75,50 @@
         }
     }
 
-    // ─── Smooth Scroll for Anchor Links ───
+    // ─── Smooth scroll pro anchor linky ───
     function handleSmoothScroll(e) {
-        const link = e.target.closest('a[href^="#"]');
+        var link = e.target.closest('a[href^="#"]');
         if (!link) return;
-
-        const targetId = link.getAttribute('href');
+        var targetId = link.getAttribute('href');
         if (targetId === '#') return;
-
-        const target = document.querySelector(targetId);
+        var target = document.querySelector(targetId);
         if (!target) return;
-
         e.preventDefault();
         closeMenu();
-
-        const navHeight = navbar.offsetHeight;
-        const targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
-
-        window.scrollTo({
-            top: targetPos,
-            behavior: 'smooth'
-        });
+        var navHeight = navbar.offsetHeight;
+        var targetPos = target.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+        window.scrollTo({ top: targetPos, behavior: 'smooth' });
     }
 
-    // ─── Counter Animation ───
+    // ─── Counter animace ───
     function animateCounter(el) {
-        const target = parseInt(el.dataset.target);
-        const suffix = el.dataset.suffix || '';
-        const duration = 2000;
-        const startTime = performance.now();
+        var target = parseInt(el.dataset.target);
+        var suffix = el.dataset.suffix || '';
+        var duration = 2000;
+        var startTime = performance.now();
 
         function update(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.round(target * eased);
-
+            var elapsed = currentTime - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var current = Math.round(target * eased);
             el.textContent = current.toLocaleString('cs-CZ') + suffix;
-
-            if (progress < 1) {
-                requestAnimationFrame(update);
-            }
+            if (progress < 1) requestAnimationFrame(update);
         }
-
         requestAnimationFrame(update);
     }
 
-    // ─── Intersection Observer: Scroll Animations ───
-    let statsAnimated = false;
+    // ─── IntersectionObserver — scroll animace ───
+    var statsAnimated = false;
 
-    const scrollObserver = new IntersectionObserver(function(entries) {
+    var scrollObserver = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
 
-                // Animate stat counters once
+                // Animace statistik (jen jednou)
                 if (!statsAnimated && entry.target.classList.contains('hero-stats')) {
                     statsAnimated = true;
-                    // Small delay for visual effect
                     setTimeout(function() {
                         statNumbers.forEach(animateCounter);
                     }, 300);
@@ -142,30 +136,54 @@
         scrollObserver.observe(el);
     });
 
+    // ─── Aktivní nav link highlighting ───
+    var sections = document.querySelectorAll('section[id]');
+    var navLinksAll = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    var sectionObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var id = entry.target.getAttribute('id');
+                navLinksAll.forEach(function(link) {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + id) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '-20% 0px -60% 0px'
+    });
+
+    sections.forEach(function(section) {
+        sectionObserver.observe(section);
+    });
+
     // ─── FAQ Accordion ───
     function toggleFAQ(item) {
-        const isActive = item.classList.contains('active');
-        const question = item.querySelector('.faq-question');
+        var isActive = item.classList.contains('active');
+        var question = item.querySelector('.faq-question');
 
-        // Close all
+        // Zavřít všechny
         faqItems.forEach(function(faq) {
             faq.classList.remove('active');
             faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
         });
 
-        // Toggle clicked
+        // Otevřít kliknutý (pokud nebyl otevřený)
         if (!isActive) {
             item.classList.add('active');
             question.setAttribute('aria-expanded', 'true');
         }
     }
 
-    // ─── Form Validation ───
+    // ─── Validace formuláře ───
     function validateField(input) {
-        const group = input.closest('.form-group');
+        var group = input.closest('.form-group');
         if (!group) return true;
-
-        let valid = true;
+        var valid = true;
 
         if (input.required && !input.value.trim()) {
             valid = false;
@@ -180,25 +198,21 @@
         } else {
             group.classList.add('error');
         }
-
         return valid;
     }
 
     function handleFormSubmit(e) {
         e.preventDefault();
-
-        const inputs = contactForm.querySelectorAll('input, select, textarea');
-        let allValid = true;
+        var inputs = contactForm.querySelectorAll('input, select, textarea');
+        var allValid = true;
 
         inputs.forEach(function(input) {
-            if (!validateField(input)) {
-                allValid = false;
-            }
+            if (!validateField(input)) allValid = false;
         });
 
         if (!allValid) return;
 
-        // Simulate submission
+        // Simulace odeslání (nahradit Netlify Forms fetch)
         submitBtn.classList.add('loading');
 
         setTimeout(function() {
@@ -206,45 +220,60 @@
             formSuccess.classList.add('visible');
             contactForm.reset();
 
-            // Remove success after 5s
             setTimeout(function() {
                 formSuccess.classList.remove('visible');
             }, 5000);
         }, 1500);
     }
 
-    // ─── Event Listeners ───
+    // ─── Service card → contact pre-fill ───
+    function preSelectService() {
+        var params = new URLSearchParams(window.location.search);
+        var service = params.get('service');
+        if (service) {
+            var select = document.getElementById('service');
+            if (select) {
+                for (var i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value === service) {
+                        select.selectedIndex = i;
+                        break;
+                    }
+                }
+            }
+        }
+    }
 
-    // Scroll events (throttled via rAF)
-    let ticking = false;
+    // ─── Event listenery ───
+
+    // Scroll (throttled přes rAF)
+    var ticking = false;
     window.addEventListener('scroll', function() {
         if (!ticking) {
             requestAnimationFrame(function() {
                 handleNavScroll();
                 handleScrollTopVisibility();
+                updateScrollProgress();
                 ticking = false;
             });
             ticking = true;
         }
     }, { passive: true });
 
-    // Nav toggle
+    // Navigace
     navToggle.addEventListener('click', toggleMenu);
-
-    // Close menu on nav link click
     navLinks.addEventListener('click', function(e) {
-        if (e.target.closest('a')) {
-            closeMenu();
-        }
+        if (e.target.closest('a')) closeMenu();
     });
 
     // Smooth scroll
     document.addEventListener('click', handleSmoothScroll);
 
     // Scroll to top
-    scrollTopBtn.addEventListener('click', function() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 
     // FAQ
     faqItems.forEach(function(item) {
@@ -253,27 +282,23 @@
         });
     });
 
-    // Form
+    // Formulář
     if (contactForm) {
         contactForm.addEventListener('submit', handleFormSubmit);
-
-        // Real-time validation on blur
         contactForm.querySelectorAll('input, select, textarea').forEach(function(input) {
             input.addEventListener('blur', function() {
                 if (input.value) validateField(input);
             });
-            // Clear error on input
             input.addEventListener('input', function() {
                 input.closest('.form-group').classList.remove('error');
             });
         });
     }
 
-    // Keyboard: close menu on Escape
+    // Klávesové zkratky
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             closeMenu();
-            // Close FAQ
             faqItems.forEach(function(item) {
                 item.classList.remove('active');
                 item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
@@ -281,8 +306,10 @@
         }
     });
 
-    // Initialize: handle scroll state on load
+    // ─── Inicializace ───
     handleNavScroll();
     handleScrollTopVisibility();
+    updateScrollProgress();
+    preSelectService();
 
 })();
