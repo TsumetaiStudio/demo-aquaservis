@@ -18,6 +18,7 @@
         if (page === '' || page === '/') page = 'index.html';
 
         var navLinksEl = document.querySelectorAll('.nav-links a:not(.nav-cta-btn)');
+        var matched = false;
         navLinksEl.forEach(function(link) {
             link.classList.remove('active-page');
             var href = link.getAttribute('href');
@@ -30,8 +31,19 @@
 
             if (linkPage === page) {
                 link.classList.add('active-page');
+                matched = true;
             }
         });
+
+        // Highlight logo on homepage when no nav link matched
+        var logo = document.querySelector('.nav-logo');
+        if (logo) {
+            if (page === 'index.html' && !matched) {
+                logo.classList.add('active-page');
+            } else {
+                logo.classList.remove('active-page');
+            }
+        }
     }
 
     // ─── Mobile Navigation — overlay ───

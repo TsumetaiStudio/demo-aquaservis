@@ -155,7 +155,10 @@ button { cursor: pointer; }
 .nav-logo {
     display: flex; align-items: center; gap: 14px;
     font-size: 20px; font-weight: 800; color: var(--text); z-index: 1001;
-    margin-right: 8px;
+    margin-right: 8px; transition: var(--transition);
+}
+.nav-logo.active-page {
+    color: var(--primary);
 }
 .nav-links { display: flex; align-items: center; gap: 10px; }
 .nav-links a:not(.nav-user-btn):not(.nav-cta-btn) {
@@ -1576,6 +1579,9 @@ button { cursor: pointer; }
 }
 [data-theme="dark"] .nav-logo {
     color: #f1f5f9;
+}
+[data-theme="dark"] .nav-logo.active-page {
+    color: #38bdf8;
 }
 [data-theme="dark"] .nav-links a:not(.nav-user-btn):not(.nav-cta-btn) {
     color: #cbd5e1;
