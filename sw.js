@@ -1,18 +1,19 @@
-var CACHE_NAME = 'aquaservis-v2';
+var CACHE_NAME = 'cistimebazeny-v3';
 var urlsToCache = [
     '/',
     '/index.html',
-    '/css/style.css?v=13',
-    '/css/hero.css?v=13',
-    '/css/pages.css?v=13',
-    '/css/gallery.css?v=13',
-    '/css/cookies.css?v=13',
-    '/js/main.js?v=13',
-    '/js/cookies.js?v=13',
+    '/css/style.css?v=14',
+    '/css/hero.css?v=14',
+    '/css/pages.css?v=14',
+    '/css/gallery.css?v=14',
+    '/css/cookies.css?v=14',
+    '/js/main.js?v=14',
+    '/js/cookies.js?v=14',
     '/manifest.json'
 ];
 
 self.addEventListener('install', function(event) {
+    self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME).then(function(cache) {
             return cache.addAll(urlsToCache);
@@ -22,16 +23,16 @@ self.addEventListener('install', function(event) {
 
 self.addEventListener('fetch', function(event) {
     event.respondWith(
-        caches.match(event.request).then(function(response) {
-            if (response) return response;
-            return fetch(event.request).then(function(response) {
-                if (!response || response.status !== 200 || response.type !== 'basic') return response;
+        fetch(event.request).then(function(response) {
+            if (response && response.status === 200 && response.type === 'basic') {
                 var responseToCache = response.clone();
                 caches.open(CACHE_NAME).then(function(cache) {
                     cache.put(event.request, responseToCache);
                 });
-                return response;
-            });
+            }
+            return response;
+        }).catch(function() {
+            return caches.match(event.request);
         })
     );
 });
@@ -46,6 +47,8 @@ self.addEventListener('activate', function(event) {
                     return caches.delete(name);
                 })
             );
+        }).then(function() {
+            return self.clients.claim();
         })
     );
 });

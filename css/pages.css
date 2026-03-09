@@ -504,6 +504,43 @@
     line-height: 1.5;
 }
 
+/* Sponsors — Logo Grid */
+.sponsors-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px 60px;
+    padding: 32px 0;
+}
+.sponsor-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    background: var(--surface, #fff);
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sponsor-logo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.sponsor-logo img {
+    max-height: 60px;
+    max-width: 180px;
+    width: auto;
+    object-fit: contain;
+    filter: none;
+    transition: filter 0.3s ease;
+}
+[data-theme="dark"] .sponsor-logo {
+    background: rgba(255,255,255,0.06);
+}
+[data-theme="dark"] .sponsor-logo img {
+    filter: brightness(0.9) contrast(1.1);
+}
+
 /* Certifications — Interactive Cards */
 .certifications-grid {
     display: grid;

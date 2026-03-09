@@ -333,6 +333,39 @@ button { cursor: pointer; }
     font-weight: 700; border-radius: var(--radius-full); letter-spacing: .02em;
 }
 
+/* ─── Sponsors ─── */
+.sponsors-bar .section-header { padding-top: 0; }
+.sponsors-bar .section-title { font-size: var(--font-h3); }
+.sponsors-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px 60px;
+    padding: 16px 0;
+}
+.sponsor-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sponsor-logo:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.sponsor-logo img {
+    max-height: 60px;
+    max-width: 180px;
+    width: auto;
+    object-fit: contain;
+}
+[data-theme="dark"] .sponsor-logo img {
+    filter: brightness(0.9) contrast(1.1);
+}
+
 /* ─── Service Cards ─── */
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .service-card {
@@ -1091,7 +1124,7 @@ button { cursor: pointer; }
 /* ─── Responsive: Tablet ─── */
 @media (max-width: 1024px) {
     .about-grid { grid-template-columns: repeat(2, 1fr); }
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .services-grid { grid-template-columns: 1fr; }
     .steps-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
     .steps-grid::before { display: none; }
     .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
