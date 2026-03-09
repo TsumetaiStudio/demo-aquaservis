@@ -1,14 +1,14 @@
-var CACHE_NAME = 'aquaservis-v1';
+var CACHE_NAME = 'aquaservis-v2';
 var urlsToCache = [
     '/',
     '/index.html',
-    '/css/style.css?v=5',
-    '/css/hero.css?v=5',
-    '/css/pages.css?v=5',
-    '/css/gallery.css?v=5',
-    '/css/cookies.css?v=5',
-    '/js/main.js?v=5',
-    '/js/cookies.js?v=5',
+    '/css/style.css?v=13',
+    '/css/hero.css?v=13',
+    '/css/pages.css?v=13',
+    '/css/gallery.css?v=13',
+    '/css/cookies.css?v=13',
+    '/js/main.js?v=13',
+    '/js/cookies.js?v=13',
     '/manifest.json'
 ];
 

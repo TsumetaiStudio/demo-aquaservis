@@ -2,6 +2,13 @@
    AquaServis — Page-Specific Styles (Subpages)
    ======================================================== */
 
+/* ─── Disable white corner gradient overlay on all cards ─── */
+.service-detail-card::before,
+.value-card::before,
+.team-card::before,
+.certification-card::before,
+.contact-hours::before { display: none !important; }
+
 /* ─── Page Header with Water Effects (all subpages) ─── */
 .page-header {
     position: relative;
@@ -157,15 +164,7 @@
     margin-bottom: 48px;
 }
 .service-detail-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(135deg, var(--primary-50), transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 1;
-    pointer-events: none;
+    display: none;
 }
 .service-detail-card:last-child {
     margin-bottom: 0;
@@ -204,7 +203,7 @@
     transition: transform 0.5s ease;
 }
 .service-detail-card:hover .service-detail-img img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 /* Content area (text side) */
 .service-detail-content {
@@ -265,7 +264,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
-    align-items: center;
+    align-items: stretch;
 }
 .about-story-content h2 {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
@@ -312,6 +311,7 @@
     overflow: hidden;
     box-shadow: var(--shadow-lg);
     position: relative;
+    height: 100%;
 }
 .about-story-image img {
     width: 100%;
@@ -961,7 +961,7 @@
     box-shadow: var(--shadow);
 }
 [data-theme="dark"] .service-detail-card::before {
-    background: linear-gradient(135deg, rgba(2,132,199,0.08), transparent 60%);
+    display: none;
 }
 [data-theme="dark"] .service-detail-card:hover {
     box-shadow: 0 12px 40px rgba(2,132,199,0.15);

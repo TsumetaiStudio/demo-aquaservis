@@ -34,17 +34,17 @@
     min-width: 280px;
     font-size: 0.9rem;
     line-height: 1.5;
-    color: #334155;
+    color: var(--text-secondary);
 }
 
 .cookie-banner-text a {
-    color: #0284c7;
+    color: var(--primary);
     text-decoration: underline;
     text-underline-offset: 2px;
 }
 
 .cookie-banner-text a:hover {
-    color: #0c4a6e;
+    color: var(--primary-dark);
 }
 
 .cookie-banner-buttons {
@@ -79,20 +79,20 @@
 }
 
 .cookie-btn-reject {
-    background: #f1f5f9;
-    color: #475569;
-    border: 1px solid #e2e8f0;
+    background: var(--bg-alt);
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
 }
 
 .cookie-btn-reject:hover {
-    background: #e2e8f0;
-    color: #334155;
+    background: var(--border);
+    color: var(--text-secondary);
 }
 
 .cookie-btn-settings {
     background: transparent;
-    color: #0284c7;
-    border: 1px solid #0284c7;
+    color: var(--primary);
+    border: 1px solid var(--primary);
 }
 
 .cookie-btn-settings:hover {
@@ -118,7 +118,7 @@
 .cookie-settings-title {
     font-size: 1rem;
     font-weight: 700;
-    color: #0f172a;
+    color: var(--text);
     margin-bottom: 1rem;
 }
 
@@ -127,7 +127,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0.75rem 0;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 1px solid var(--bg-alt);
 }
 
 .cookie-category:last-child {
@@ -141,7 +141,7 @@
 .cookie-category-name {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--text);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -150,15 +150,15 @@
 .cookie-category-name .cookie-required {
     font-size: 0.7rem;
     font-weight: 500;
-    color: #64748b;
-    background: #f1f5f9;
+    color: var(--text-muted);
+    background: var(--bg-alt);
     padding: 0.125rem 0.5rem;
     border-radius: 1rem;
 }
 
 .cookie-category-desc {
     font-size: 0.8rem;
-    color: #64748b;
+    color: var(--text-muted);
     margin-top: 0.125rem;
 }
 
@@ -181,7 +181,7 @@
 .cookie-toggle-slider {
     position: absolute;
     inset: 0;
-    background: #cbd5e1;
+    background: var(--border-light);
     border-radius: 24px;
     cursor: pointer;
     transition: background 0.25s ease;

@@ -154,11 +154,16 @@
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
 
-                    // Stats counter animation (only on pages with hero-stats)
-                    if (!statsAnimated && entry.target.classList.contains('hero-stats')) {
-                        statsAnimated = true;
+                    // Stats counter animation
+                    if (entry.target.classList.contains('hero-stats') || entry.target.hasAttribute('data-counter-group')) {
+                        var counters = entry.target.querySelectorAll('.stat-number');
                         setTimeout(function() {
-                            statNumbers.forEach(animateCounter);
+                            counters.forEach(function(el) {
+                                if (!el.dataset.animated) {
+                                    el.dataset.animated = 'true';
+                                    animateCounter(el);
+                                }
+                            });
                         }, 300);
                     }
 
@@ -391,6 +396,11 @@
         if (metaTheme) {
             metaTheme.setAttribute('content', theme === 'dark' ? '#0f172a' : '#0284c7');
         }
+        // Update theme label text in mobile menu (shows current mode)
+        var themeLabels = document.querySelectorAll('.theme-label');
+        themeLabels.forEach(function(label) {
+            label.textContent = theme === 'dark' ? 'Tmavý režim' : 'Světlý režim';
+        });
     }
 
     // Initialize theme

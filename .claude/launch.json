@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "static-server",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-l", "3000", "C:/2026/demo-aquaservis"],
-      "port": 3000
+      "name": "aquaservis-dev",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["-e", "const http=require('http'),fs=require('fs'),path=require('path');const mime={'.html':'text/html;charset=utf-8','.css':'text/css','.js':'application/javascript','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.svg':'image/svg+xml','.webp':'image/webp','.woff2':'font/woff2','.woff':'font/woff','.ico':'image/x-icon','.gif':'image/gif'};http.createServer((req,res)=>{let url=req.url.split('?')[0];if(url==='/')url='/index.html';const ext=path.extname(url);if(!ext)url+='.html';const file=path.join('C:/2026/demo-aquaservis',url);fs.readFile(file,(err,data)=>{if(err){fs.readFile('C:/2026/demo-aquaservis/404.html',(e,d)=>{res.writeHead(404,{'Content-Type':'text/html;charset=utf-8'});res.end(d||'Not found')});return}res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream','Cache-Control':'no-cache'});res.end(data)})}).listen(8890,()=>console.log('Server on http://localhost:8890'))"],
+      "port": 8890
     }
   ]
 }
