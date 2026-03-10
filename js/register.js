@@ -112,30 +112,36 @@
             return;
         }
 
-        // Register user via AquaAuth
+        // Register user via AquaAuth (async — password is hashed)
         if (window.AquaAuth) {
-            var regResult = window.AquaAuth.register({
+            var submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
+
+            window.AquaAuth.register({
                 firstName: fields.firstName.el.value.trim(),
                 lastName: fields.lastName.el.value.trim(),
                 email: fields.email.el.value.trim(),
                 password: fields.password.el.value,
                 phone: fields.phone.el ? fields.phone.el.value.trim() : ''
+            }).then(function(regResult) {
+                if (!regResult.success) {
+                    showError(fields.email.el, regResult.error);
+                    fields.email.el.closest('.form-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    if (submitBtn) submitBtn.disabled = false;
+                    return;
+                }
+
+                // Show success overlay
+                if (successOverlay) {
+                    successOverlay.style.display = 'flex';
+                    successOverlay.offsetHeight;
+                    successOverlay.classList.add('visible');
+                    document.body.style.overflow = 'hidden';
+                }
+                if (submitBtn) submitBtn.disabled = false;
+            }).catch(function() {
+                if (submitBtn) submitBtn.disabled = false;
             });
-
-            if (!regResult.success) {
-                showError(fields.email.el, regResult.error);
-                fields.email.el.closest('.form-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                return;
-            }
-        }
-
-        // Show success overlay
-        if (successOverlay) {
-            successOverlay.style.display = 'flex';
-            // Trigger reflow for animation
-            successOverlay.offsetHeight;
-            successOverlay.classList.add('visible');
-            document.body.style.overflow = 'hidden';
         }
     });
 

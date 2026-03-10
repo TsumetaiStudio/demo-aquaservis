@@ -1,6 +1,7 @@
 /**
  * AquaServis — Demo Auth System (localStorage)
  * Handles user registration, login, and session management.
+ * Passwords are stored as SHA-256 hashes — never in plaintext.
  */
 (function() {
     'use strict';
@@ -8,14 +9,23 @@
     var STORAGE_KEY = 'aquaservis_users';
     var SESSION_KEY = 'aquaservis_session';
 
-    // ─── Default demo accounts ───
+    // ─── SHA-256 hash (Web Crypto API) ───
+    function sha256(message) {
+        var msgBuffer = new TextEncoder().encode(message);
+        return crypto.subtle.digest('SHA-256', msgBuffer).then(function(hashBuffer) {
+            var hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(function(b) { return b.toString(16).padStart(2, '0'); }).join('');
+        });
+    }
+
+    // ─── Default demo accounts (passwords are pre-hashed with SHA-256) ───
     var DEFAULT_ACCOUNTS = [
         {
             id: 1,
-            firstName: 'Zákazník',
+            firstName: 'Z\u00e1kazn\u00edk',
             lastName: 'Demo',
             email: 'zakaznik@mail.cz',
-            password: '321demo11',
+            password: '02b345c6ed9bf2bf9ab67ba2bcb6ba0caad9402aec50150a62cedd6a56599a85',
             phone: '+420 607 241 000',
             role: 'customer',
             createdAt: '2026-03-10T08:00:00.000Z'
@@ -23,9 +33,9 @@
         {
             id: 2,
             firstName: 'Admin',
-            lastName: 'WebZitra',
-            email: 'pekarna@webzitra.cz',
-            password: '321demo11',
+            lastName: 'Spr\u00e1vce',
+            email: 'admin@cistimebazeny.cz',
+            password: '02b345c6ed9bf2bf9ab67ba2bcb6ba0caad9402aec50150a62cedd6a56599a85',
             phone: '+420 600 000 000',
             role: 'admin',
             createdAt: '2026-03-10T08:00:00.000Z'
@@ -38,7 +48,6 @@
         if (!stored) {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_ACCOUNTS));
         } else {
-            // Ensure default accounts exist
             var users = JSON.parse(stored);
             var updated = false;
             DEFAULT_ACCOUNTS.forEach(function(def) {
@@ -64,47 +73,58 @@
         return users.find(function(u) { return u.email.toLowerCase() === email.toLowerCase(); }) || null;
     }
 
-    // ─── Register new user ───
+    // ─── Register new user (async — returns Promise) ───
     function register(userData) {
         var users = getUsers();
 
         // Check duplicate email
         var exists = users.some(function(u) { return u.email.toLowerCase() === userData.email.toLowerCase(); });
         if (exists) {
-            return { success: false, error: 'Účet s tímto e-mailem již existuje.' };
+            return Promise.resolve({ success: false, error: '\u00da\u010det s t\u00edmto e-mailem ji\u017e existuje.' });
         }
 
         var maxId = users.reduce(function(max, u) { return u.id > max ? u.id : max; }, 0);
-        var newUser = {
-            id: maxId + 1,
-            firstName: userData.firstName,
-            lastName: userData.lastName,
-            email: userData.email,
-            password: userData.password,
-            phone: userData.phone || '',
-            role: 'customer',
-            createdAt: new Date().toISOString()
-        };
 
-        users.push(newUser);
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
-        return { success: true, user: newUser };
+        return sha256(userData.password).then(function(hashedPw) {
+            var newUser = {
+                id: maxId + 1,
+                firstName: userData.firstName,
+                lastName: userData.lastName,
+                email: userData.email,
+                password: hashedPw,
+                phone: userData.phone || '',
+                role: 'customer',
+                createdAt: new Date().toISOString()
+            };
+
+            var currentUsers = getUsers();
+            currentUsers.push(newUser);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(currentUsers));
+            return { success: true, user: newUser };
+        });
     }
 
-    // ─── Login ───
+    // ─── Login (async — returns Promise) ───
     function login(email, password) {
         var user = findByEmail(email);
         if (!user) {
-            return { success: false, error: 'Nesprávný e-mail nebo heslo.' };
-        }
-        if (user.password !== password) {
-            return { success: false, error: 'Nesprávný e-mail nebo heslo.' };
+            return Promise.resolve({ success: false, error: 'Nespr\u00e1vn\u00fd e-mail nebo heslo.' });
         }
 
-        // Save session
-        var session = { userId: user.id, email: user.email, role: user.role, name: user.firstName + ' ' + user.lastName };
-        localStorage.setItem(SESSION_KEY, JSON.stringify(session));
-        return { success: true, user: user, session: session };
+        return sha256(password).then(function(hashedPw) {
+            if (user.password !== hashedPw) {
+                return { success: false, error: 'Nespr\u00e1vn\u00fd e-mail nebo heslo.' };
+            }
+
+            var session = {
+                userId: user.id,
+                email: user.email,
+                role: user.role,
+                name: user.firstName + ' ' + user.lastName
+            };
+            localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+            return { success: true, user: user, session: session };
+        });
     }
 
     // ─── Logout ───
@@ -133,7 +153,8 @@
         getSession: getSession,
         getUsers: getUsers,
         findByEmail: findByEmail,
-        isAdmin: isAdmin
+        isAdmin: isAdmin,
+        hashPassword: sha256
     };
 
     // Auto-initialize

@@ -80,9 +80,7 @@ npx serve . -l 8890 --no-clipboard --cors
 ## Auth systém
 
 - **localStorage klíče:** `aquaservis_users`, `aquaservis_session`
-- **Demo účty:**
-  - Admin: `pekarna@webzitra.cz` / `321demo11`
-  - Zákazník: `zakaznik@mail.cz` / `321demo11`
+- **Demo účty:** Přihlašovací údaje jsou uvedeny na přihlašovací stránce (prihlaseni.html). Hesla jsou uložena jako SHA-256 hashe.
 - **Role:** `admin` → admin.html, `customer` → klientska-zona.html
 - **Globální API:** `window.AquaAuth.{init, register, login, logout, getSession, getUsers, findByEmail, isAdmin}`
 

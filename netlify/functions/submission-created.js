@@ -1,7 +1,8 @@
 // Netlify Background Function — triggered on every form submission
 // Sends email notification to admin via Netlify's built-in email service
 
-const NOTIFICATION_EMAIL = "pekarna@webzitra.cz";
+// Set your notification email in Netlify environment variables (NOTIFICATION_EMAIL)
+const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || "info@cistimebazeny.cz";
 
 exports.handler = async function(event) {
     const payload = JSON.parse(event.body).payload;

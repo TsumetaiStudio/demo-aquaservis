@@ -1949,7 +1949,7 @@
         } catch(e) {}
         return {
             name: 'Admin AquaServis',
-            email: 'pekarna@webzitra.cz',
+            email: 'admin@cistimebazeny.cz',
             phone: '+420 777 888 999',
             webName: 'AquaServis Praha',
             webDesc: 'Profesionální servis bazénů, zastřešení a vodní hospodářství',

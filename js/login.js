@@ -76,18 +76,26 @@
             return;
         }
 
-        var result = window.AquaAuth.login(email, password);
+        // Disable form during async login
+        var submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) submitBtn.disabled = true;
 
-        if (!result.success) {
-            showLoginError(result.error);
-            return;
-        }
+        window.AquaAuth.login(email, password).then(function(result) {
+            if (!result.success) {
+                showLoginError(result.error);
+                if (submitBtn) submitBtn.disabled = false;
+                return;
+            }
 
-        // Redirect based on role
-        if (result.user.role === 'admin') {
-            window.location.href = 'admin.html';
-        } else {
-            window.location.href = 'klientska-zona.html';
-        }
+            // Redirect based on role
+            if (result.user.role === 'admin') {
+                window.location.href = 'admin.html';
+            } else {
+                window.location.href = 'klientska-zona.html';
+            }
+        }).catch(function() {
+            showLoginError('Chyba p\u0159i p\u0159ihla\u0161ov\u00e1n\u00ed. Zkuste to znovu.');
+            if (submitBtn) submitBtn.disabled = false;
+        });
     });
 })();

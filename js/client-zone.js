@@ -140,7 +140,7 @@
         });
     }
 
-    // ─── Password change ───
+    // ─── Password change (async — uses SHA-256 hashing) ───
     var passwordForm = document.getElementById('passwordForm');
     if (passwordForm) {
         passwordForm.addEventListener('submit', function(e) {
@@ -149,30 +149,42 @@
             var newPw = document.getElementById('newPassword').value;
             var newPwConfirm = document.getElementById('newPasswordConfirm').value;
 
-            if (!user || current !== user.password) {
-                showToast('Stávající heslo je nesprávné.', true);
-                return;
-            }
             if (newPw.length < 8) {
-                showToast('Nové heslo musí mít alespoň 8 znaků.', true);
+                showToast('Nov\u00e9 heslo mus\u00ed m\u00edt alespo\u0148 8 znak\u016f.', true);
                 return;
             }
             if (newPw !== newPwConfirm) {
-                showToast('Nová hesla se neshodují.', true);
+                showToast('Nov\u00e1 hesla se neshoduj\u00ed.', true);
                 return;
             }
 
-            var users = window.AquaAuth.getUsers();
-            for (var i = 0; i < users.length; i++) {
-                if (users[i].id === session.userId) {
-                    users[i].password = newPw;
-                    user = users[i];
-                    break;
-                }
+            if (!user || !window.AquaAuth || !window.AquaAuth.hashPassword) {
+                showToast('Syst\u00e9m nen\u00ed dostupn\u00fd.', true);
+                return;
             }
-            localStorage.setItem('aquaservis_users', JSON.stringify(users));
-            passwordForm.reset();
-            showToast('Heslo bylo úspěšně změněno.');
+
+            // Hash current password and compare with stored hash
+            window.AquaAuth.hashPassword(current).then(function(currentHash) {
+                if (currentHash !== user.password) {
+                    showToast('St\u00e1vaj\u00edc\u00ed heslo je nespr\u00e1vn\u00e9.', true);
+                    return;
+                }
+
+                // Hash new password and save
+                return window.AquaAuth.hashPassword(newPw).then(function(newHash) {
+                    var users = window.AquaAuth.getUsers();
+                    for (var i = 0; i < users.length; i++) {
+                        if (users[i].id === session.userId) {
+                            users[i].password = newHash;
+                            user = users[i];
+                            break;
+                        }
+                    }
+                    localStorage.setItem('aquaservis_users', JSON.stringify(users));
+                    passwordForm.reset();
+                    showToast('Heslo bylo \u00fasp\u011b\u0161n\u011b zm\u011bn\u011bno.');
+                });
+            });
         });
     }
 
