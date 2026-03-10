@@ -219,6 +219,74 @@
         });
     }
 
+    // ─── Load Dynamic Gallery Images from localStorage ───
+    function loadDynamicGalleryImages() {
+        var GALLERY_KEY = 'aquaservis_gallery';
+        try {
+            var data = localStorage.getItem(GALLERY_KEY);
+            if (!data) return;
+            var items = JSON.parse(data);
+            if (!items || items.length === 0) return;
+
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                var galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item animate-on-scroll';
+                galleryItem.setAttribute('data-category', item.category || 'realizace');
+                galleryItem.setAttribute('tabindex', '0');
+                galleryItem.setAttribute('role', 'button');
+
+                var img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.alt || '';
+                img.loading = 'lazy';
+
+                var overlay = document.createElement('div');
+                overlay.className = 'gallery-overlay';
+                overlay.innerHTML = '<span class="gallery-title">' + (item.alt || '') + '</span>';
+
+                galleryItem.appendChild(img);
+                galleryItem.appendChild(overlay);
+                galleryGrid.appendChild(galleryItem);
+
+                // Add click handler for lightbox
+                (function(el) {
+                    el.addEventListener('click', function() {
+                        updateVisibleItems();
+                        var index = visibleItems.indexOf(el);
+                        if (index !== -1) openLightbox(index);
+                    });
+                    el.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            el.click();
+                        }
+                    });
+                })(galleryItem);
+            }
+
+            // Refresh galleryItems NodeList
+            galleryItems = galleryGrid.querySelectorAll('.gallery-item');
+
+            // Observe new items for scroll animation
+            var scrollObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        scrollObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+            var newItems = galleryGrid.querySelectorAll('.gallery-item.animate-on-scroll:not(.visible)');
+            newItems.forEach(function(item) { scrollObserver.observe(item); });
+        } catch (e) {
+            // Silently fail
+        }
+    }
+
+    loadDynamicGalleryImages();
+
     // ─── Initialize ───
     updateVisibleItems();
 

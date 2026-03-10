@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klientská zóna – Čistíme bazény</title>
+    <meta name="description" content="Klientský portál Čistíme bazény — správa objednávek, sledování stavu servisu a nastavení účtu.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230ea5e9'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='15' fill='url(%23g)'/%3E%3Cpath d='M8 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M8 13c2-3 4-3 6 0s4 3 6 0 4-3 6 0' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0284c7">
+
+    <script>(function(){var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);})()</script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css?v=15">
+    <link rel="stylesheet" href="css/hero.css?v=15">
+    <link rel="stylesheet" href="css/pages.css?v=15">
+    <link rel="stylesheet" href="css/admin.css?v=15">
+    <link rel="stylesheet" href="css/cookies.css?v=15">
+    <link rel="stylesheet" href="css/ai-chat.css?v=1">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Přejít na obsah</a>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logos/logo-garden-servis.png" alt="Garden servis JH s.r.o." height="36">
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="o-nas.html">O nás</a>
+                <a href="sluzby.html">Služby</a>
+                <a href="cenik.html">Ceník</a>
+                <a href="galerie.html">Galerie</a>
+                <a href="kontakt.html" class="nav-cta-btn btn btn-sm btn-primary">Kontakt</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Přepnout tmavý režim" title="Tmavý/světlý režim">
+                    <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <span class="nav-icon-label theme-label">Tmavý režim</span>
+                </button>
+                <a href="prihlaseni.html" class="nav-user-btn" aria-label="Přihlášení / Registrace" title="Přihlášení">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    <span class="nav-icon-label">Přihlášení</span>
+                </a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+    <!-- ===================== PAGE HEADER ===================== -->
+    <section class="page-header" style="--page-bg: url('../images/gallery/hero-pool-garden.jpg')">
+        <div class="page-header-bubbles">
+            <div class="page-header-bubble" style="left:10%;width:20px;height:20px;animation-duration:6s;animation-delay:0s"></div>
+            <div class="page-header-bubble" style="left:30%;width:14px;height:14px;animation-duration:8s;animation-delay:1s"></div>
+            <div class="page-header-bubble" style="left:60%;width:18px;height:18px;animation-duration:7s;animation-delay:2s"></div>
+            <div class="page-header-bubble" style="left:85%;width:12px;height:12px;animation-duration:9s;animation-delay:0.5s"></div>
+        </div>
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">Domů</a>
+                <span class="breadcrumb-sep">/</span>
+                <span class="breadcrumb-current">Klientská zóna</span>
+            </nav>
+            <h1 class="page-title animate-on-scroll">Klientská <span class="text-gradient">zóna</span></h1>
+            <p class="page-subtitle animate-on-scroll">Spravujte své objednávky a nastavení účtu.</p>
+        </div>
+        <div class="page-header-waves">
+            <div class="page-header-wave page-header-wave--1"></div>
+            <div class="page-header-wave page-header-wave--2"></div>
+        </div>
+    </section>
+
+    <!-- ===================== CLIENT ZONE CONTENT ===================== -->
+    <section class="section">
+        <div class="container">
+
+            <!-- Unauthenticated state -->
+            <div id="clientNoAuth" class="client-noauth">
+                <div class="client-noauth-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                </div>
+                <h3>Přístup vyžaduje přihlášení</h3>
+                <p>Pro přístup ke klientské zóně se musíte přihlásit pomocí svých přihlašovacích údajů.</p>
+                <a href="prihlaseni.html" class="btn btn-primary btn-lg" style="margin-bottom: 1rem;">Přihlásit se</a>
+                <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 0;">Nemáte účet? <a href="registrace.html" style="color: #38bdf8; font-weight: 600;">Registrovat se</a></p>
+            </div>
+
+            <!-- Authenticated state (hidden by default) -->
+            <div id="clientDashboard" style="display: none;">
+
+                <!-- Welcome bar -->
+                <div class="client-welcome-bar">
+                    <div>
+                        <h2>Vítejte, <span id="clientName"></span></h2>
+                        <p id="clientEmail"></p>
+                    </div>
+                    <button class="client-btn-outline" id="clientLogout">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                        Odhlásit se
+                    </button>
+                </div>
+
+                <!-- Tabs -->
+                <div class="client-tabs" id="clientTabs">
+                    <button class="client-tab active" data-panel="panelOverview">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;vertical-align:-2px"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                        Přehled
+                    </button>
+                    <button class="client-tab" data-panel="panelOrders">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;vertical-align:-2px"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        Objednávky
+                    </button>
+                    <button class="client-tab" data-panel="panelMessages">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;vertical-align:-2px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Zprávy
+                    </button>
+                    <button class="client-tab" data-panel="panelProfile">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;vertical-align:-2px"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Profil
+                    </button>
+                </div>
+
+                <!-- ===== OVERVIEW PANEL ===== -->
+                <div class="client-panel active" id="panelOverview">
+                    <div class="client-stats-grid">
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            </div>
+                            <div class="admin-stat-number">3</div>
+                            <div class="admin-stat-label">Objednávky celkem</div>
+                        </div>
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div class="admin-stat-number">1</div>
+                            <div class="admin-stat-label">Aktivní servis</div>
+                        </div>
+                        <div class="admin-stat-card">
+                            <div class="admin-stat-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                            </div>
+                            <div class="admin-stat-number">2026</div>
+                            <div class="admin-stat-label">Klient od</div>
+                        </div>
+                    </div>
+
+                    <!-- Recent orders -->
+                    <div class="admin-table-card">
+                        <div class="admin-table-header">
+                            <h3>Poslední objednávky</h3>
+                        </div>
+                        <div class="admin-order-item">
+                            <div class="admin-order-info">
+                                <strong>AQ-2026-047</strong>
+                                <p>Pravidelné čištění bazénu · 5. 3. 2026</p>
+                            </div>
+                            <span class="admin-badge admin-badge-active">Dokončeno</span>
+                            <span class="admin-order-price" style="margin-left: 1rem;">3 200 Kč</span>
+                        </div>
+                        <div class="admin-order-item">
+                            <div class="admin-order-info">
+                                <strong>AQ-2026-038</strong>
+                                <p>Servis filtrace + úprava vody · 18. 2. 2026</p>
+                            </div>
+                            <span class="admin-badge admin-badge-pending">V realizaci</span>
+                            <span class="admin-order-price" style="margin-left: 1rem;">4 800 Kč</span>
+                        </div>
+                        <div class="admin-order-item">
+                            <div class="admin-order-info">
+                                <strong>AQ-2026-021</strong>
+                                <p>Jarní zprovoznění · 2. 2. 2026</p>
+                            </div>
+                            <span class="admin-badge admin-badge-active">Dokončeno</span>
+                            <span class="admin-order-price" style="margin-left: 1rem;">3 500 Kč</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== ORDERS PANEL ===== -->
+                <div class="client-panel" id="panelOrders">
+                    <div class="admin-table-card">
+                        <div class="admin-table-header">
+                            <h3>Všechny objednávky</h3>
+                        </div>
+
+                        <!-- Order 1 -->
+                        <div class="client-order-row" data-order="AQ-2026-047">
+                            <div class="client-order-summary">
+                                <div class="client-order-info">
+                                    <strong>AQ-2026-047</strong>
+                                    <span>Pravidelné čištění bazénu</span>
+                                </div>
+                                <div class="client-order-meta">
+                                    <span class="client-order-date">5. 3. 2026</span>
+                                    <span class="admin-badge admin-badge-active">Dokončeno</span>
+                                    <span class="admin-order-price">3 200 Kč</span>
+                                </div>
+                                <svg class="client-order-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="client-order-detail">
+                                <div class="client-order-detail-grid">
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Služba</span>
+                                        <span class="client-order-detail-value">Pravidelné čištění bazénu</span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Datum</span>
+                                        <span class="client-order-detail-value">5. 3. 2026</span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Status</span>
+                                        <span class="client-order-detail-value"><span class="admin-badge admin-badge-active">Dokončeno</span></span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Cena</span>
+                                        <span class="client-order-detail-value" style="color: #22c55e; font-weight: 700;">3 200 Kč</span>
+                                    </div>
+                                </div>
+                                <div class="client-order-documents">
+                                    <button class="client-btn-outline client-doc-btn" data-doc="smlouva" data-order="AQ-2026-047">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                        Smlouva (PDF)
+                                    </button>
+                                    <button class="client-btn-outline client-doc-btn" data-doc="faktura" data-order="AQ-2026-047">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Faktura (PDF)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 2 -->
+                        <div class="client-order-row" data-order="AQ-2026-038">
+                            <div class="client-order-summary">
+                                <div class="client-order-info">
+                                    <strong>AQ-2026-038</strong>
+                                    <span>Servis filtrace + úprava vody</span>
+                                </div>
+                                <div class="client-order-meta">
+                                    <span class="client-order-date">18. 2. 2026</span>
+                                    <span class="admin-badge admin-badge-pending">V realizaci</span>
+                                    <span class="admin-order-price">4 800 Kč</span>
+                                </div>
+                                <svg class="client-order-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="client-order-detail">
+                                <div class="client-order-detail-grid">
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Služba</span>
+                                        <span class="client-order-detail-value">Servis filtrace + úprava vody</span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Datum</span>
+                                        <span class="client-order-detail-value">18. 2. 2026</span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Status</span>
+                                        <span class="client-order-detail-value"><span class="admin-badge admin-badge-pending">V realizaci</span></span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Cena</span>
+                                        <span class="client-order-detail-value" style="color: #22c55e; font-weight: 700;">4 800 Kč</span>
+                                    </div>
+                                </div>
+                                <div class="client-order-documents">
+                                    <button class="client-btn-outline client-doc-btn" data-doc="smlouva" data-order="AQ-2026-038">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                        Smlouva (PDF)
+                                    </button>
+                                    <button class="client-btn-outline client-doc-btn" data-doc="faktura" data-order="AQ-2026-038">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Faktura (PDF)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 3 -->
+                        <div class="client-order-row" data-order="AQ-2026-021">
+                            <div class="client-order-summary">
+                                <div class="client-order-info">
+                                    <strong>AQ-2026-021</strong>
+                                    <span>Jarní zprovoznění</span>
+                                </div>
+                                <div class="client-order-meta">
+                                    <span class="client-order-date">2. 2. 2026</span>
+                                    <span class="admin-badge admin-badge-active">Dokončeno</span>
+                                    <span class="admin-order-price">3 500 Kč</span>
+                                </div>
+                                <svg class="client-order-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="client-order-detail">
+                                <div class="client-order-detail-grid">
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Služba</span>
+                                        <span class="client-order-detail-value">Jarní zprovoznění</span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Datum</span>
+                                        <span class="client-order-detail-value">2. 2. 2026</span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Status</span>
+                                        <span class="client-order-detail-value"><span class="admin-badge admin-badge-active">Dokončeno</span></span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Cena</span>
+                                        <span class="client-order-detail-value" style="color: #22c55e; font-weight: 700;">3 500 Kč</span>
+                                    </div>
+                                </div>
+                                <div class="client-order-documents">
+                                    <button class="client-btn-outline client-doc-btn" data-doc="smlouva" data-order="AQ-2026-021">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                        Smlouva (PDF)
+                                    </button>
+                                    <button class="client-btn-outline client-doc-btn" data-doc="faktura" data-order="AQ-2026-021">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Faktura (PDF)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 4 -->
+                        <div class="client-order-row" data-order="AQ-2025-198">
+                            <div class="client-order-summary">
+                                <div class="client-order-info">
+                                    <strong>AQ-2025-198</strong>
+                                    <span>Zazimování bazénu</span>
+                                </div>
+                                <div class="client-order-meta">
+                                    <span class="client-order-date">15. 10. 2025</span>
+                                    <span class="admin-badge admin-badge-active">Dokončeno</span>
+                                    <span class="admin-order-price">2 500 Kč</span>
+                                </div>
+                                <svg class="client-order-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="client-order-detail">
+                                <div class="client-order-detail-grid">
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Služba</span>
+                                        <span class="client-order-detail-value">Zazimování bazénu</span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Datum</span>
+                                        <span class="client-order-detail-value">15. 10. 2025</span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Status</span>
+                                        <span class="client-order-detail-value"><span class="admin-badge admin-badge-active">Dokončeno</span></span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Cena</span>
+                                        <span class="client-order-detail-value" style="color: #22c55e; font-weight: 700;">2 500 Kč</span>
+                                    </div>
+                                </div>
+                                <div class="client-order-documents">
+                                    <button class="client-btn-outline client-doc-btn" data-doc="smlouva" data-order="AQ-2025-198">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                        Smlouva (PDF)
+                                    </button>
+                                    <button class="client-btn-outline client-doc-btn" data-doc="faktura" data-order="AQ-2025-198">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Faktura (PDF)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 5 -->
+                        <div class="client-order-row" data-order="AQ-2025-142">
+                            <div class="client-order-summary">
+                                <div class="client-order-info">
+                                    <strong>AQ-2025-142</strong>
+                                    <span>Instalace bazénu na klíč</span>
+                                </div>
+                                <div class="client-order-meta">
+                                    <span class="client-order-date">10. 6. 2025</span>
+                                    <span class="admin-badge admin-badge-active">Dokončeno</span>
+                                    <span class="admin-order-price">285 000 Kč</span>
+                                </div>
+                                <svg class="client-order-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="client-order-detail">
+                                <div class="client-order-detail-grid">
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Služba</span>
+                                        <span class="client-order-detail-value">Instalace bazénu na klíč</span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Datum</span>
+                                        <span class="client-order-detail-value">10. 6. 2025</span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Status</span>
+                                        <span class="client-order-detail-value"><span class="admin-badge admin-badge-active">Dokončeno</span></span>
+                                    </div>
+                                    <div class="client-order-detail-item">
+                                        <span class="client-order-detail-label">Cena</span>
+                                        <span class="client-order-detail-value" style="color: #22c55e; font-weight: 700;">285 000 Kč</span>
+                                    </div>
+                                </div>
+                                <div class="client-order-documents">
+                                    <button class="client-btn-outline client-doc-btn" data-doc="smlouva" data-order="AQ-2025-142">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                        Smlouva (PDF)
+                                    </button>
+                                    <button class="client-btn-outline client-doc-btn" data-doc="faktura" data-order="AQ-2025-142">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                        Faktura (PDF)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ===== MESSAGES PANEL ===== -->
+                <div class="client-panel" id="panelMessages">
+                    <div class="admin-table-card">
+                        <div class="admin-table-header">
+                            <h3>Vaše zprávy</h3>
+                        </div>
+
+                        <!-- Message 1 -->
+                        <div class="client-message-row" data-message="1">
+                            <div class="client-message-summary">
+                                <div class="client-message-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div class="client-message-content">
+                                    <div class="client-message-subject">Dotaz na odzimování bazénu</div>
+                                    <div class="client-message-preview">Dobrý den, rád bych se zeptal na termín odzimování bazénu pro letošní sezónu...</div>
+                                </div>
+                                <div class="client-message-meta">
+                                    <span class="client-message-date">28. 2. 2026</span>
+                                    <span class="client-message-status client-message-status--answered">Zodpovězeno</span>
+                                </div>
+                                <svg class="client-message-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="client-message-detail">
+                                <div class="client-message-full">Dobrý den, rád bych se zeptal na termín odzimování bazénu pro letošní sezónu. Máte volné termíny v dubnu? Děkuji.</div>
+                            </div>
+                        </div>
+
+                        <!-- Message 2 -->
+                        <div class="client-message-row" data-message="2">
+                            <div class="client-message-summary">
+                                <div class="client-message-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div class="client-message-content">
+                                    <div class="client-message-subject">Reklamace filtrace</div>
+                                    <div class="client-message-preview">Dobrý den, po posledním servisu filtrace se mi zdá, že filtr nepracuje správně...</div>
+                                </div>
+                                <div class="client-message-meta">
+                                    <span class="client-message-date">15. 2. 2026</span>
+                                    <span class="client-message-status client-message-status--answered">Zodpovězeno</span>
+                                </div>
+                                <svg class="client-message-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="client-message-detail">
+                                <div class="client-message-full">Dobrý den, po posledním servisu filtrace se mi zdá, že filtr nepracuje správně. Voda je stále zakalená. Můžete se na to podívat?</div>
+                            </div>
+                        </div>
+
+                        <!-- Message 3 -->
+                        <div class="client-message-row" data-message="3">
+                            <div class="client-message-summary">
+                                <div class="client-message-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div class="client-message-content">
+                                    <div class="client-message-subject">Poptávka zastřešení</div>
+                                    <div class="client-message-preview">Dobrý den, zajímalo by mě, zda nabízíte i zastřešení nadzemních bazénů...</div>
+                                </div>
+                                <div class="client-message-meta">
+                                    <span class="client-message-date">5. 1. 2026</span>
+                                    <span class="client-message-status client-message-status--pending">Čeká na odpověď</span>
+                                </div>
+                                <svg class="client-message-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="client-message-detail">
+                                <div class="client-message-full">Dobrý den, zajímalo by mě, zda nabízíte i zastřešení nadzemních bazénů. Mám bazén 4x8m. Prosím o cenovou nabídku.</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ===== PROFILE PANEL ===== -->
+                <div class="client-panel" id="panelProfile">
+                    <div class="client-profile-card">
+                        <h3>Osobní údaje</h3>
+                        <form id="profileForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profFirstName">Jméno</label>
+                                    <input type="text" id="profFirstName" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profLastName">Příjmení</label>
+                                    <input type="text" id="profLastName" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profEmail">E-mail</label>
+                                <input type="email" id="profEmail" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="profPhone">Telefon</label>
+                                <input type="tel" id="profPhone" readonly>
+                            </div>
+                            <div class="client-profile-actions">
+                                <button type="button" class="client-btn-primary" id="profileEditBtn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                                    Upravit
+                                </button>
+                                <button type="submit" class="client-btn-primary" id="profileSaveBtn" style="display:none;">Uložit změny</button>
+                                <button type="button" class="client-btn-outline" id="profileCancelBtn" style="display:none;">Zrušit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Password change -->
+                    <div class="client-profile-card" style="margin-top: 1.5rem;">
+                        <h3>Změna hesla</h3>
+                        <form id="passwordForm">
+                            <div class="form-group">
+                                <label for="currentPassword">Stávající heslo</label>
+                                <input type="password" id="currentPassword" placeholder="Zadejte stávající heslo">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="newPassword">Nové heslo</label>
+                                    <input type="password" id="newPassword" placeholder="Min. 8 znaků">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPasswordConfirm">Nové heslo znovu</label>
+                                    <input type="password" id="newPasswordConfirm" placeholder="Zopakujte heslo">
+                                </div>
+                            </div>
+                            <button type="submit" class="client-btn-primary">Změnit heslo</button>
+                        </form>
+                    </div>
+
+                    <!-- Newsletter toggle -->
+                    <div class="client-profile-card client-newsletter-card">
+                        <h3>Odběr novinek</h3>
+                        <div class="client-newsletter-row">
+                            <div class="client-newsletter-info">
+                                <h4>E-mailový newsletter</h4>
+                                <p>Dostávejte tipy na údržbu bazénu, sezónní akce a novinky přímo do emailu.</p>
+                            </div>
+                            <label class="client-toggle">
+                                <input type="checkbox" id="newsletterToggle">
+                                <span class="client-toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Delete account (danger zone) -->
+                    <div class="client-profile-card client-danger-card">
+                        <h3>Smazání účtu</h3>
+                        <p>Tato akce je nevratná. Smazáním účtu přijdete o přístup ke svým objednávkám a historii.</p>
+                        <button type="button" class="client-btn-danger" id="deleteAccountBtn">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+                            Smazat účet
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="nav-logo footer-brand-logo">
+                        <img src="images/logos/logo-garden-servis.png" alt="Garden servis JH s.r.o." height="40">
+                    </a>
+                    <p class="footer-desc">Profesionální servis a čištění bazénů v Jihočeském kraji a na Vysočině. Garden servis JH s.r.o. — dlouholeté zkušenosti, kvalitní chemie a spolehlivý servis po celý rok. IČO: 05770068, plátce DPH.</p>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <a href="mailto:info@cistimebazeny.cz">info@cistimebazeny.cz</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Lásenice 181, 378 01 Lásenice
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/cistimebazeny.cz/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Provozní doba</h4>
+                    <ul>
+                        <li>Po–Pá: 8:00 – 18:00</li>
+                        <li>So: 9:00 – 14:00</li>
+                        <li>Ne: Zavřeno</li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Služby</h4>
+                    <ul>
+                        <li><a href="sluzby.html">Čištění bazénů</a></li>
+                        <li><a href="sluzby.html">Odzimování / Zazimování</a></li>
+                        <li><a href="sluzby.html">Zastřešení bazénů</a></li>
+                        <li><a href="sluzby.html">Tepelná čerpadla</a></li>
+                        <li><a href="sluzby.html">Fóliové bazény</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Společnost</h4>
+                    <ul>
+                        <li><a href="o-nas.html">O nás</a></li>
+                        <li><a href="cenik.html">Ceník</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="novinky.html">Novinky</a></li>
+                        <li><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Právní</h4>
+                    <ul>
+                        <li><a href="smluvni-podminky.html">Smluvní podmínky</a></li>
+                        <li><a href="smluvni-podminky.html#ochrana-udaju">Ochrana osobních údajů (GDPR)</a></li>
+                        <li><a href="reklamacni-rad.html">Reklamační řád</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-wave"></div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025–2026 Garden servis JH s.r.o. (cistimebazeny.cz). Všechna práva vyhrazena.</p>
+                <div class="footer-bottom-links">
+                    <span>Demo — <a href="https://webzitra.cz" target="_blank" rel="noopener">WebZítra</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Zpět nahoru">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="cookie-banner"></div>
+
+    <!-- Scripts -->
+    <script src="js/auth.js?v=15" defer></script>
+    <script src="js/main.js?v=15" defer></script>
+    <script src="js/client-zone.js?v=15" defer></script>
+    <script src="js/cookies.js?v=15" defer></script>
+    <script src="js/ai-chat.js?v=1" defer></script>
+</body>
+</html>

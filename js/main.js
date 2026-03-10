@@ -444,4 +444,33 @@
         });
     }
 
+    // ─── Session-aware Navigation ───
+    (function() {
+        var navUserLink = document.querySelector('.nav-user-btn');
+        if (!navUserLink) return;
+
+        // Read session directly from localStorage (no AquaAuth dependency)
+        var sessionRaw = null;
+        try { sessionRaw = localStorage.getItem('aquaservis_session'); } catch(e) {}
+        if (!sessionRaw) return;
+        var session = null;
+        try { session = JSON.parse(sessionRaw); } catch(e) {}
+        if (session) {
+            // Update icon link based on role
+            if (session.role === 'admin') {
+                navUserLink.href = 'admin.html';
+                navUserLink.title = 'Admin Panel';
+            } else {
+                navUserLink.href = 'klientska-zona.html';
+                navUserLink.title = 'Klientská zóna';
+            }
+            // Update label text
+            var label = navUserLink.querySelector('.nav-icon-label');
+            if (label) label.textContent = session.role === 'admin' ? 'Admin' : 'Můj účet';
+
+            // Add logged-in visual indicator
+            navUserLink.classList.add('nav-user-logged-in');
+        }
+    })();
+
 })();

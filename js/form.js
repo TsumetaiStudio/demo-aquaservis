@@ -49,7 +49,7 @@
     // ─── Form Submit Handler ───
     function handleFormSubmit(e) {
         e.preventDefault();
-        var inputs = contactForm.querySelectorAll('input:not([type="hidden"]), select, textarea');
+        var inputs = contactForm.querySelectorAll('input:not([type="hidden"]):not([type="file"]), select, textarea');
         var allValid = true;
 
         inputs.forEach(function(input) {
@@ -72,13 +72,12 @@
         // Show loading state
         if (submitBtn) submitBtn.classList.add('loading');
 
-        // Netlify Forms submission
+        // Netlify Forms submission (multipart for file uploads)
         var formData = new FormData(contactForm);
 
         fetch('/', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams(formData).toString()
+            body: formData
         })
         .then(function(response) {
             if (response.ok) {
@@ -109,11 +108,61 @@
     function showSuccess() {
         if (submitBtn) submitBtn.classList.remove('loading');
         if (formSuccess) formSuccess.classList.add('visible');
+
+        // Save message to localStorage for admin panel
+        saveMessageToAdmin();
+
         contactForm.reset();
+        // Clear file upload previews
+        if (uploadPreview) uploadPreview.innerHTML = '';
+        selectedFiles = [];
 
         setTimeout(function() {
             if (formSuccess) formSuccess.classList.remove('visible');
         }, 5000);
+    }
+
+    // ─── Save message to localStorage for admin Zprávy panel ───
+    function saveMessageToAdmin() {
+        try {
+            var nameVal = document.getElementById('name') ? document.getElementById('name').value.trim() : '';
+            var emailVal = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
+            var phoneVal = document.getElementById('phone') ? document.getElementById('phone').value.trim() : '';
+            var serviceVal = document.getElementById('service') ? document.getElementById('service').value : '';
+            var messageVal = document.getElementById('message') ? document.getElementById('message').value.trim() : '';
+
+            var MESSAGES_KEY = 'aquaservis_messages';
+            var messages = [];
+            var stored = localStorage.getItem(MESSAGES_KEY);
+            if (stored) messages = JSON.parse(stored);
+
+            // Generate unique ID
+            var maxId = 0;
+            messages.forEach(function(m) { if (m.id > maxId) maxId = m.id; });
+
+            var newMessage = {
+                id: maxId + 1,
+                name: nameVal,
+                email: emailVal,
+                phone: phoneVal,
+                service: serviceVal,
+                message: messageVal,
+                createdAt: new Date().toISOString(),
+                read: false
+            };
+
+            messages.push(newMessage);
+            localStorage.setItem(MESSAGES_KEY, JSON.stringify(messages));
+
+            // Log simulated email notification
+            console.log('[AquaServis] Simulovaný email odeslán adminovi:', {
+                to: 'admin@aquaservis.cz',
+                subject: 'Nová poptávka od ' + nameVal,
+                body: 'Služba: ' + serviceVal + '\nZpráva: ' + messageVal + '\nKontakt: ' + emailVal + ' / ' + phoneVal
+            });
+        } catch(e) {
+            console.warn('Nepodařilo se uložit zprávu do admin panelu:', e);
+        }
     }
 
     // ─── Event Listeners ───
@@ -128,6 +177,94 @@
             if (group) group.classList.remove('error');
         });
     });
+
+    // ─── File Upload with Drag & Drop ───
+    var uploadArea = document.getElementById('uploadArea');
+    var uploadInput = document.getElementById('attachment');
+    var uploadPreview = document.getElementById('uploadPreview');
+    var selectedFiles = [];
+
+    if (uploadArea && uploadInput && uploadPreview) {
+        // Drag & drop events
+        ['dragenter', 'dragover'].forEach(function(evt) {
+            uploadArea.addEventListener(evt, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                uploadArea.classList.add('dragover');
+            });
+        });
+        ['dragleave', 'drop'].forEach(function(evt) {
+            uploadArea.addEventListener(evt, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                uploadArea.classList.remove('dragover');
+            });
+        });
+
+        uploadArea.addEventListener('drop', function(e) {
+            var files = e.dataTransfer.files;
+            handleFiles(files);
+        });
+
+        uploadInput.addEventListener('change', function() {
+            handleFiles(uploadInput.files);
+        });
+
+        function handleFiles(fileList) {
+            for (var i = 0; i < fileList.length; i++) {
+                var file = fileList[i];
+                if (!file.type.startsWith('image/')) continue;
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('Soubor "' + file.name + '" je příliš velký (max. 5 MB).');
+                    continue;
+                }
+                selectedFiles.push(file);
+                addPreviewThumb(file, selectedFiles.length - 1);
+            }
+            updateFileInput();
+        }
+
+        function addPreviewThumb(file, idx) {
+            var item = document.createElement('div');
+            item.className = 'form-upload-preview-item';
+            item.dataset.idx = idx;
+
+            var img = document.createElement('img');
+            img.alt = file.name;
+            var reader = new FileReader();
+            reader.onload = function(e) { img.src = e.target.result; };
+            reader.readAsDataURL(file);
+
+            var removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'form-upload-preview-remove';
+            removeBtn.innerHTML = '&times;';
+            removeBtn.setAttribute('aria-label', 'Odebrat ' + file.name);
+            removeBtn.addEventListener('click', function() {
+                selectedFiles[idx] = null;
+                item.remove();
+                updateFileInput();
+            });
+
+            item.appendChild(img);
+            item.appendChild(removeBtn);
+            uploadPreview.appendChild(item);
+        }
+
+        function updateFileInput() {
+            var dt = new DataTransfer();
+            selectedFiles.forEach(function(f) {
+                if (f) dt.items.add(f);
+            });
+            uploadInput.files = dt.files;
+        }
+
+        // Clear previews on form reset
+        contactForm.addEventListener('reset', function() {
+            selectedFiles = [];
+            uploadPreview.innerHTML = '';
+        });
+    }
 
     // ─── Initialize ───
     preSelectService();

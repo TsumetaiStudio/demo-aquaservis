@@ -112,9 +112,29 @@
             return;
         }
 
+        // Register user via AquaAuth
+        if (window.AquaAuth) {
+            var regResult = window.AquaAuth.register({
+                firstName: fields.firstName.el.value.trim(),
+                lastName: fields.lastName.el.value.trim(),
+                email: fields.email.el.value.trim(),
+                password: fields.password.el.value,
+                phone: fields.phone.el ? fields.phone.el.value.trim() : ''
+            });
+
+            if (!regResult.success) {
+                showError(fields.email.el, regResult.error);
+                fields.email.el.closest('.form-group').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+        }
+
         // Show success overlay
         if (successOverlay) {
             successOverlay.style.display = 'flex';
+            // Trigger reflow for animation
+            successOverlay.offsetHeight;
+            successOverlay.classList.add('visible');
             document.body.style.overflow = 'hidden';
         }
     });
@@ -124,10 +144,19 @@
         var closeBtn = successOverlay.querySelector('.success-close');
         if (closeBtn) {
             closeBtn.addEventListener('click', function() {
-                successOverlay.style.display = 'none';
+                successOverlay.classList.remove('visible');
                 document.body.style.overflow = '';
-                form.reset();
+                setTimeout(function() {
+                    successOverlay.style.display = 'none';
+                    form.reset();
+                }, 300);
             });
         }
+        // Close on overlay click (outside modal)
+        successOverlay.addEventListener('click', function(e) {
+            if (e.target === successOverlay) {
+                closeBtn.click();
+            }
+        });
     }
 })();

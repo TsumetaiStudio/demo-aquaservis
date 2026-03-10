@@ -2,6 +2,7 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt – CistimeBazeny.cz | Nezávazná poptávka</title>
     <meta name="description" content="Kontaktujte CistimeBazeny.cz. Nezávazná poptávka, telefon +420 607 241 000, email info@cistimebazeny.cz. Lásenice 181, 378 01 Lásenice. Jihočeský kraj a Vysočina.">
@@ -14,7 +15,7 @@
     <meta property="og:type" content="website">
     <meta property="og:locale" content="cs_CZ">
     <meta property="og:url" content="https://www.cistimebazeny.cz/kontakt.html">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=1200&h=630&fit=crop">
+    <meta property="og:image" content="images/gallery/hero-main.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230ea5e9'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='15' fill='url(%23g)'/%3E%3Cpath d='M8 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M8 13c2-3 4-3 6 0s4 3 6 0 4-3 6 0' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E">
@@ -35,6 +36,7 @@
     <link rel="stylesheet" href="css/hero.css?v=14">
     <link rel="stylesheet" href="css/pages.css?v=14">
     <link rel="stylesheet" href="css/cookies.css?v=14">
+    <link rel="stylesheet" href="css/ai-chat.css?v=1">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -77,13 +79,7 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="index.html" class="nav-logo">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                    <defs><linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
-                    <circle cx="16" cy="16" r="15" fill="url(#logoGrad)"/>
-                    <path d="M8 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                    <path d="M8 13c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".5"/>
-                </svg>
-                CistimeBazeny.cz
+                <img src="images/logos/logo-garden-servis.png" alt="Garden servis JH s.r.o." height="36">
             </a>
             <div class="nav-links" id="navLinks">
                 <a href="o-nas.html">O nás</a>
@@ -96,7 +92,7 @@
                     <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                     <span class="nav-icon-label theme-label">Tmavý režim</span>
                 </button>
-                <a href="registrace.html" class="nav-user-btn" aria-label="Přihlášení / Registrace" title="Přihlášení">
+                <a href="prihlaseni.html" class="nav-user-btn" aria-label="Přihlášení / Registrace" title="Přihlášení">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                     <span class="nav-icon-label">Přihlášení</span>
                 </a>
@@ -110,7 +106,7 @@
     <main id="main-content">
 
     <!-- ===================== PAGE HEADER ===================== -->
-    <section class="page-header" style="--page-bg: url('https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=1200&h=400&fit=crop')">
+    <section class="page-header" style="--page-bg: url('../images/gallery/hero-main.jpg')">
         <!-- Bubbles -->
         <div class="page-header-bubbles">
             <div class="page-header-bubble" style="left:6%;width:18px;height:18px;animation-duration:9s;animation-delay:0s"></div>
@@ -143,7 +139,7 @@
         <div class="container">
             <div class="contact-grid">
                 <!-- Contact Form -->
-                <form class="contact-form animate-on-scroll" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+                <form class="contact-form animate-on-scroll" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" novalidate>
                     <input type="hidden" name="form-name" value="contact">
                     <div class="form-honeypot">
                         <label>Don't fill this out: <input name="bot-field"></label>
@@ -184,10 +180,24 @@
                             <span id="service-error" class="form-error">Vyberte prosím službu</span>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group form-group-grow">
                         <label for="message">Zpráva</label>
                         <textarea id="message" name="message" rows="5" placeholder="Popište prosím váš požadavek..." required aria-describedby="message-error"></textarea>
                         <span id="message-error" class="form-error">Napište prosím zprávu</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="attachment">Příloha (fotografie)</label>
+                        <div class="form-upload-area" id="uploadArea">
+                            <input type="file" id="attachment" name="attachment" accept="image/*" multiple>
+                            <svg class="form-upload-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <path d="m21 15-5-5L5 21"/>
+                            </svg>
+                            <span class="form-upload-text"><strong>Klikněte</strong> nebo přetáhněte obrázky</span>
+                            <span class="form-upload-hint">JPG, PNG, WEBP — max. 5 MB / soubor</span>
+                        </div>
+                        <div class="form-upload-preview" id="uploadPreview"></div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg btn-block" id="submitBtn">
                         <span class="btn-text">Odeslat poptávku</span>
@@ -284,14 +294,14 @@
         <div class="container">
             <div class="contact-map-full" style="border-radius: var(--radius-lg); overflow: hidden;">
                 <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10340!2d15.09!3d49.13!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714594d19e6e5c1%3A0x400af0f66164090!2sL%C3%A1senice!5e0!3m2!1scs!2scz!4v1709000000000"
+                    src="https://maps.google.com/maps?q=L%C3%A1senice+181%2C+378+01+L%C3%A1senice%2C+Czech+Republic&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     width="100%"
                     height="400"
                     style="border:0"
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
-                    title="CistimeBazeny.cz — mapa, Lásenice">
+                    title="CistimeBazeny.cz — mapa, Lásenice 181, 378 01 Lásenice">
                 </iframe>
             </div>
         </div>
@@ -338,13 +348,7 @@
             <div class="footer-grid">
                 <div class="footer-brand">
 <a href="index.html" class="nav-logo footer-brand-logo">
-                        <svg width="40" height="40" viewBox="0 0 32 32" fill="none">
-                            <defs><linearGradient id="logoGradF" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
-                            <circle cx="16" cy="16" r="15" fill="url(#logoGradF)"/>
-                            <path d="M8 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                            <path d="M8 13c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".5"/>
-                        </svg>
-                        Čistíme Bazény
+                        <img src="images/logos/logo-garden-servis.png" alt="Garden servis JH s.r.o." height="40">
                     </a>
                     <p class="footer-desc">Profesionální servis a čištění bazénů v Jihočeském kraji a na Vysočině. Garden servis JH s.r.o. — dlouholeté zkušenosti, kvalitní chemie a spolehlivý servis po celý rok. IČO: 05770068, plátce DPH.</p>
                     <div class="footer-contact-item">
@@ -383,6 +387,7 @@
                         <li><a href="o-nas.html">O nás</a></li>
                         <li><a href="cenik.html">Ceník</a></li>
                         <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="novinky.html">Novinky</a></li>
                         <li><a href="kontakt.html">Kontakt</a></li>
                     </ul>
                 </div>
@@ -419,5 +424,6 @@
     <script src="js/cookies.js?v=14" defer></script>
     <script src="js/main.js?v=14" defer></script>
     <script src="js/form.js?v=14" defer></script>
+    <script src="js/ai-chat.js?v=1" defer></script>
 </body>
 </html>

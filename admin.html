@@ -2,10 +2,13 @@
 <html lang="cs">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel – AquaServis Praha</title>
     <meta name="description" content="Administrační panel AquaServis Praha. Správa zákazníků, objednávek a newsletteru.">
     <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; script-src 'self' 'unsafe-inline';">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%230ea5e9'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='15' fill='url(%23g)'/%3E%3Cpath d='M8 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M8 13c2-3 4-3 6 0s4 3 6 0 4-3 6 0' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' opacity='.5'/%3E%3C/svg%3E">
@@ -32,15 +35,25 @@
 
         <!-- ===================== LOGIN SCREEN ===================== -->
         <div class="admin-login" id="adminLogin">
+            <div class="admin-login-bg"></div>
+            <div class="admin-login-bubbles">
+                <div class="admin-bubble" style="left: 10%; width: 20px; height: 20px; animation-duration: 12s; animation-delay: 0s;"></div>
+                <div class="admin-bubble" style="left: 25%; width: 14px; height: 14px; animation-duration: 15s; animation-delay: 2s;"></div>
+                <div class="admin-bubble" style="left: 40%; width: 24px; height: 24px; animation-duration: 10s; animation-delay: 4s;"></div>
+                <div class="admin-bubble" style="left: 55%; width: 10px; height: 10px; animation-duration: 18s; animation-delay: 1s;"></div>
+                <div class="admin-bubble" style="left: 70%; width: 18px; height: 18px; animation-duration: 13s; animation-delay: 3s;"></div>
+                <div class="admin-bubble" style="left: 85%; width: 12px; height: 12px; animation-duration: 16s; animation-delay: 5s;"></div>
+                <div class="admin-bubble" style="left: 15%; width: 16px; height: 16px; animation-duration: 14s; animation-delay: 6s;"></div>
+                <div class="admin-bubble" style="left: 60%; width: 22px; height: 22px; animation-duration: 11s; animation-delay: 7s;"></div>
+            </div>
+            <div class="admin-login-waves">
+                <div class="admin-login-wave admin-login-wave--1"></div>
+                <div class="admin-login-wave admin-login-wave--2"></div>
+                <div class="admin-login-wave admin-login-wave--3"></div>
+            </div>
             <div class="admin-login-card">
                 <div class="admin-login-logo">
-                    <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
-                        <defs><linearGradient id="loginLogoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
-                        <circle cx="16" cy="16" r="15" fill="url(#loginLogoGrad)"/>
-                        <path d="M8 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                        <path d="M8 13c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".5"/>
-                    </svg>
-                    AquaServis Admin
+                    <img src="images/logos/logo-garden-servis.png" alt="Garden servis JH" style="height: 32px; width: auto;">
                 </div>
                 <h1 class="admin-login-title">Přihlášení</h1>
                 <p class="admin-login-subtitle">Zadejte údaje pro přístup do administrace</p>
@@ -64,18 +77,16 @@
             <!-- Sidebar -->
             <aside class="admin-sidebar" id="adminSidebar">
                 <a href="index.html" class="admin-sidebar-logo">
-                    <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
-                        <defs><linearGradient id="sideLogoGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#06b6d4"/></linearGradient></defs>
-                        <circle cx="16" cy="16" r="15" fill="url(#sideLogoGrad)"/>
-                        <path d="M8 18c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                        <path d="M8 13c2-3 4-3 6 0s4 3 6 0 4-3 6 0" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".5"/>
-                    </svg>
-                    AquaServis
+                    <img src="images/logos/logo-garden-servis.png" alt="Garden servis JH" style="height: 26px; width: auto;">
                 </a>
                 <nav class="admin-sidebar-nav">
                     <button class="admin-nav-item active" data-panel="panelDashboard">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
                         Dashboard
+                    </button>
+                    <button class="admin-nav-item" data-panel="panelStatistiky">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="10" width="3" height="6" rx="0.5" stroke="currentColor" stroke-width="1.5"/><rect x="7.5" y="6" width="3" height="10" rx="0.5" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="2" width="3" height="14" rx="0.5" stroke="currentColor" stroke-width="1.5"/></svg>
+                        Statistiky
                     </button>
                     <button class="admin-nav-item" data-panel="panelCustomers">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 16c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -85,9 +96,18 @@
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 6h6M6 9h4M6 12h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                         Objednávky
                     </button>
-                    <button class="admin-nav-item" data-panel="panelNewsletter">
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="3" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 5l8 5 8-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-                        Newsletter
+                    <button class="admin-nav-item" data-panel="panelZpravy">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="3" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 5l8 5 8-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Zprávy
+                        <span class="message-badge" id="messagesBadge" style="display:none;">0</span>
+                    </button>
+                    <button class="admin-nav-item" data-panel="panelNovinky">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="10" height="14" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M12 5h3.5a.5.5 0 01.5.5V15a1 1 0 01-1 1H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 6h4M5 9h3M5 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        Novinky
+                    </button>
+                    <button class="admin-nav-item" data-panel="panelGalerie">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="3" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="7.5" r="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 13l4-4 3 3 3-4 6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Galerie
                     </button>
                     <button class="admin-nav-item" data-panel="panelSettings">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 1v2M9 15v2M1 9h2M15 9h2M3.34 3.34l1.42 1.42M13.24 13.24l1.42 1.42M3.34 14.66l1.42-1.42M13.24 4.76l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -95,22 +115,58 @@
                     </button>
                 </nav>
                 <div class="admin-sidebar-footer">
-                    <button class="theme-toggle" id="themeToggle" aria-label="Přepnout tmavý režim" title="Tmavý/světlý režim">
-                        <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                        <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <button class="admin-footer-btn admin-theme-toggle" id="adminThemeToggle" aria-label="Přepnout tmavý režim" title="Tmavý/světlý režim">
+                        <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                        <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        <span class="admin-theme-label">Tmavý režim</span>
                     </button>
-                    <button class="admin-logout-btn" id="adminLogout">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 14H3a1 1 0 01-1-1V3a1 1 0 011-1h3M11 11l3-3-3-3M14 8H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Odhlásit se
+                    <button class="admin-footer-btn admin-logout-btn" id="adminLogout">
+                        <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M6 14H3a1 1 0 01-1-1V3a1 1 0 011-1h3M11 11l3-3-3-3M14 8H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <span>Odhlásit se</span>
                     </button>
-                    <a href="registrace.html" class="nav-user-btn" aria-label="Přihlášení / Registrace" title="Přihlášení">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </a>
                 </div>
             </aside>
 
+            <!-- Mobile Top Icon Bar -->
+            <div class="admin-mobile-bar" id="adminMobileBar">
+                <div class="admin-mobile-bar-inner">
+                    <button class="admin-mobile-icon active" data-panel="panelDashboard" title="Dashboard">
+                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="1" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="1" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="11" y="11" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </button>
+                    <button class="admin-mobile-icon" data-panel="panelStatistiky" title="Statistiky">
+                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="2" y="10" width="3" height="6" rx="0.5" stroke="currentColor" stroke-width="1.5"/><rect x="7.5" y="6" width="3" height="10" rx="0.5" stroke="currentColor" stroke-width="1.5"/><rect x="13" y="2" width="3" height="14" rx="0.5" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </button>
+                    <button class="admin-mobile-icon" data-panel="panelCustomers" title="Zákazníci">
+                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="5" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 16c0-3.314 3.134-6 7-6s7 2.686 7 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </button>
+                    <button class="admin-mobile-icon" data-panel="panelOrders" title="Objednávky">
+                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M6 6h6M6 9h4M6 12h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </button>
+                    <button class="admin-mobile-icon" data-panel="panelZpravy" title="Zprávy">
+                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="1" y="3" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M1 5l8 5 8-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button class="admin-mobile-icon" data-panel="panelNovinky" title="Novinky">
+                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="2" y="2" width="10" height="14" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M12 5h3.5a.5.5 0 01.5.5V15a1 1 0 01-1 1H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 6h4M5 9h3M5 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </button>
+                    <button class="admin-mobile-icon" data-panel="panelGalerie" title="Galerie">
+                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><rect x="1" y="3" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><circle cx="6" cy="7.5" r="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 13l4-4 3 3 3-4 6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button class="admin-mobile-icon" data-panel="panelSettings" title="Nastavení">
+                        <svg width="16" height="16" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 1v2M9 15v2M1 9h2M15 9h2M3.34 3.34l1.42 1.42M13.24 13.24l1.42 1.42M3.34 14.66l1.42-1.42M13.24 4.76l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </button>
+                </div>
+            </div>
+
             <!-- Main Content -->
             <main id="main-content" class="admin-main">
+                <div class="admin-main-bubbles">
+                    <div class="admin-bubble admin-bubble--subtle" style="left: 5%; width: 16px; height: 16px; animation-duration: 20s; animation-delay: 0s;"></div>
+                    <div class="admin-bubble admin-bubble--subtle" style="left: 20%; width: 10px; height: 10px; animation-duration: 25s; animation-delay: 3s;"></div>
+                    <div class="admin-bubble admin-bubble--subtle" style="left: 45%; width: 14px; height: 14px; animation-duration: 22s; animation-delay: 6s;"></div>
+                    <div class="admin-bubble admin-bubble--subtle" style="left: 65%; width: 8px; height: 8px; animation-duration: 28s; animation-delay: 2s;"></div>
+                    <div class="admin-bubble admin-bubble--subtle" style="left: 80%; width: 12px; height: 12px; animation-duration: 24s; animation-delay: 8s;"></div>
+                    <div class="admin-bubble admin-bubble--subtle" style="left: 92%; width: 18px; height: 18px; animation-duration: 19s; animation-delay: 5s;"></div>
+                </div>
 
                 <!-- ===== DASHBOARD PANEL ===== -->
                 <div class="admin-panel active" id="panelDashboard">
@@ -121,33 +177,115 @@
 
                     <!-- Stats -->
                     <div class="admin-stats-grid">
-                        <div class="admin-stat-card">
+                        <div class="admin-stat-card admin-stat-link" data-goto="panelCustomers" title="Zobrazit zákazníky">
                             <div class="admin-stat-icon">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="7" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M3 20c0-4 3.582-7 8-7s8 3 8 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                             </div>
                             <div class="admin-stat-number">47</div>
                             <div class="admin-stat-label">Zákazníci</div>
+                            <span class="admin-stat-arrow">→</span>
                         </div>
-                        <div class="admin-stat-card">
+                        <div class="admin-stat-card admin-stat-link" data-goto="panelOrders" title="Zobrazit objednávky">
                             <div class="admin-stat-icon">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M11 3v2M11 17v2M3 11h2M17 11h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                             </div>
                             <div class="admin-stat-number">23</div>
                             <div class="admin-stat-label">Aktivní servisy</div>
+                            <span class="admin-stat-arrow">→</span>
                         </div>
-                        <div class="admin-stat-card">
+                        <div class="admin-stat-card admin-stat-link" data-goto="panelNovinky" title="Zobrazit novinky">
                             <div class="admin-stat-icon">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M2 8l9 5 9-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                             </div>
                             <div class="admin-stat-number">156</div>
-                            <div class="admin-stat-label">Newsletter odběratelé</div>
+                            <div class="admin-stat-label">Odběratelé novinek</div>
+                            <span class="admin-stat-arrow">→</span>
                         </div>
-                        <div class="admin-stat-card">
+                        <div class="admin-stat-card admin-stat-link" data-goto="panelOrders" title="Zobrazit objednávky">
                             <div class="admin-stat-icon">
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 7h8M7 11h5M7 15h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
                             </div>
                             <div class="admin-stat-number">12</div>
                             <div class="admin-stat-label">Objednávky tento měsíc</div>
+                            <span class="admin-stat-arrow">→</span>
+                        </div>
+                    </div>
+
+                    <!-- Website Overview -->
+                    <div class="admin-table-card admin-web-overview">
+                        <div class="admin-table-header">
+                            <h3>Přehledy webu</h3>
+                            <span class="admin-web-period">Posledních 30 dní</span>
+                        </div>
+                        <div class="admin-web-stats">
+                            <div class="admin-web-stat">
+                                <div class="admin-web-stat-icon" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                                </div>
+                                <div class="admin-web-stat-data">
+                                    <div class="admin-web-stat-number">2 847</div>
+                                    <div class="admin-web-stat-label">Zobrazení stránek</div>
+                                </div>
+                                <span class="admin-web-stat-trend admin-web-stat-trend--up">+12%</span>
+                            </div>
+                            <div class="admin-web-stat">
+                                <div class="admin-web-stat-icon" style="background: rgba(34, 197, 94, 0.12); color: #22c55e;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                </div>
+                                <div class="admin-web-stat-data">
+                                    <div class="admin-web-stat-number">1 203</div>
+                                    <div class="admin-web-stat-label">Unikátní návštěvníci</div>
+                                </div>
+                                <span class="admin-web-stat-trend admin-web-stat-trend--up">+8%</span>
+                            </div>
+                            <div class="admin-web-stat">
+                                <div class="admin-web-stat-icon" style="background: rgba(251, 146, 60, 0.12); color: #fb923c;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                </div>
+                                <div class="admin-web-stat-data">
+                                    <div class="admin-web-stat-number">38%</div>
+                                    <div class="admin-web-stat-label">Míra odchodů</div>
+                                </div>
+                                <span class="admin-web-stat-trend admin-web-stat-trend--down">-5%</span>
+                            </div>
+                            <div class="admin-web-stat">
+                                <div class="admin-web-stat-icon" style="background: rgba(168, 85, 247, 0.12); color: #a855f7;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                </div>
+                                <div class="admin-web-stat-data">
+                                    <div class="admin-web-stat-number">2:45</div>
+                                    <div class="admin-web-stat-label">Prům. doba návštěvy</div>
+                                </div>
+                                <span class="admin-web-stat-trend admin-web-stat-trend--up">+18%</span>
+                            </div>
+                        </div>
+                        <div class="admin-web-pages">
+                            <h4>Nejnavštěvovanější stránky</h4>
+                            <div class="admin-web-page-row">
+                                <span class="admin-web-page-name">/ (Hlavní stránka)</span>
+                                <div class="admin-web-page-bar"><div class="admin-web-page-fill" style="width: 100%;"></div></div>
+                                <span class="admin-web-page-count">1 024</span>
+                            </div>
+                            <div class="admin-web-page-row">
+                                <span class="admin-web-page-name">/sluzby.html</span>
+                                <div class="admin-web-page-bar"><div class="admin-web-page-fill" style="width: 62%;"></div></div>
+                                <span class="admin-web-page-count">638</span>
+                            </div>
+                            <div class="admin-web-page-row">
+                                <span class="admin-web-page-name">/kontakt.html</span>
+                                <div class="admin-web-page-bar"><div class="admin-web-page-fill" style="width: 45%;"></div></div>
+                                <span class="admin-web-page-count">461</span>
+                            </div>
+                            <div class="admin-web-page-row">
+                                <span class="admin-web-page-name">/cenik.html</span>
+                                <div class="admin-web-page-bar"><div class="admin-web-page-fill" style="width: 35%;"></div></div>
+                                <span class="admin-web-page-count">359</span>
+                            </div>
+                            <div class="admin-web-page-row">
+                                <span class="admin-web-page-name">/galerie.html</span>
+                                <div class="admin-web-page-bar"><div class="admin-web-page-fill" style="width: 24%;"></div></div>
+                                <span class="admin-web-page-count">248</span>
+                            </div>
                         </div>
                     </div>
 
@@ -155,8 +293,9 @@
                     <div class="admin-table-card">
                         <div class="admin-table-header">
                             <h3>Poslední objednávky</h3>
+                            <button class="admin-link-btn" data-goto="panelOrders">Zobrazit vše →</button>
                         </div>
-                        <div class="admin-order-item">
+                        <div class="admin-order-item admin-order-clickable" data-order-id="AQ-2026-047">
                             <div class="admin-order-info">
                                 <strong>AQ-2026-047</strong> &mdash; Martin Novák
                                 <p>Pravidelné čištění bazénu &middot; 5. 3. 2026</p>
@@ -164,7 +303,7 @@
                             <span class="admin-badge admin-badge-active">Dokončeno</span>
                             <span class="admin-order-price">3 200 Kč</span>
                         </div>
-                        <div class="admin-order-item">
+                        <div class="admin-order-item admin-order-clickable" data-order-id="AQ-2026-046">
                             <div class="admin-order-info">
                                 <strong>AQ-2026-046</strong> &mdash; Jana Svobodová
                                 <p>Servis filtrace + úprava vody &middot; 4. 3. 2026</p>
@@ -172,7 +311,7 @@
                             <span class="admin-badge admin-badge-pending">V realizaci</span>
                             <span class="admin-order-price">4 800 Kč</span>
                         </div>
-                        <div class="admin-order-item">
+                        <div class="admin-order-item admin-order-clickable" data-order-id="AQ-2026-045">
                             <div class="admin-order-info">
                                 <strong>AQ-2026-045</strong> &mdash; Petr Dvořák
                                 <p>Jarní zprovoznění &middot; 3. 3. 2026</p>
@@ -180,7 +319,7 @@
                             <span class="admin-badge admin-badge-active">Dokončeno</span>
                             <span class="admin-order-price">3 500 Kč</span>
                         </div>
-                        <div class="admin-order-item">
+                        <div class="admin-order-item admin-order-clickable" data-order-id="AQ-2026-044">
                             <div class="admin-order-info">
                                 <strong>AQ-2026-044</strong> &mdash; Lucie Horáková
                                 <p>Bazén na klíč &mdash; konzultace &middot; 1. 3. 2026</p>
@@ -201,54 +340,108 @@
                         <div class="admin-table-header">
                             <h3>Seznam zákazníků</h3>
                         </div>
-                        <table class="admin-table">
-                            <thead>
-                                <tr>
-                                    <th>Jméno</th>
-                                    <th>E-mail</th>
-                                    <th>Tarif</th>
-                                    <th>Status</th>
-                                    <th>Poslední aktivita</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Martin Novák</td>
-                                    <td>martin.novak@email.cz</td>
-                                    <td>Celoroční péče</td>
-                                    <td><span class="admin-badge admin-badge-active">Aktivní</span></td>
-                                    <td>5. 3. 2026</td>
-                                </tr>
-                                <tr>
-                                    <td>Jana Svobodová</td>
-                                    <td>jana.s@email.cz</td>
-                                    <td>Celoroční péče</td>
-                                    <td><span class="admin-badge admin-badge-active">Aktivní</span></td>
-                                    <td>4. 3. 2026</td>
-                                </tr>
-                                <tr>
-                                    <td>Petr Dvořák</td>
-                                    <td>petr.dvorak@email.cz</td>
-                                    <td>Sezónní</td>
-                                    <td><span class="admin-badge admin-badge-active">Aktivní</span></td>
-                                    <td>3. 3. 2026</td>
-                                </tr>
-                                <tr>
-                                    <td>Lucie Horáková</td>
-                                    <td>lucie.h@email.cz</td>
-                                    <td>Jednorázově</td>
-                                    <td><span class="admin-badge admin-badge-pending">Čekající</span></td>
-                                    <td>1. 3. 2026</td>
-                                </tr>
-                                <tr>
-                                    <td>Tomáš Marek</td>
-                                    <td>t.marek@firma.cz</td>
-                                    <td>Sezónní</td>
-                                    <td><span class="admin-badge admin-badge-inactive">Neaktivní</span></td>
-                                    <td>15. 11. 2025</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <!-- Customer list header (grid-based) -->
+                        <div class="customer-list-header">
+                            <span>Jméno</span>
+                            <span>E-mail</span>
+                            <span>Newsletter</span>
+                            <span>Status</span>
+                            <span>Poslední aktivita</span>
+                        </div>
+                        <!-- Customer rows + inline details rendered by JS -->
+                        <div id="customersListContainer">
+                            <!-- Dynamically rendered by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Customer Detail Panel (moved inline by JS after clicked row) -->
+                    <div id="customerDetail" class="customer-detail-panel" style="display:none;">
+                        <div class="customer-detail-header">
+                            <h3 id="customerDetailName">Detail zákazníka</h3>
+                            <button type="button" class="customer-detail-close" id="customerDetailClose">&times;</button>
+                        </div>
+                        <div class="customer-detail-grid" id="customerDetailGrid">
+                            <!-- Dynamically rendered -->
+                        </div>
+
+                        <!-- Customer Orders -->
+                        <div class="customer-detail-section">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+                                <h4>📦 Objednávky</h4>
+                                <button type="button" class="admin-newsletter-btn" id="assignOrderBtn" style="font-size:0.8rem;padding:0.4rem 0.8rem;">+ Přiřadit objednávku</button>
+                            </div>
+                            <div id="customerOrdersList"><!-- Dynamically rendered --></div>
+                        </div>
+
+                        <!-- Assign Order Form (hidden by default) -->
+                        <div id="assignOrderForm" class="customer-assign-form" style="display:none;">
+                            <h4>Nová objednávka</h4>
+                            <div class="admin-form-group">
+                                <label for="newOrderService">Služba</label>
+                                <select id="newOrderService">
+                                    <option value="Pravidelné čištění bazénu">Pravidelné čištění bazénu</option>
+                                    <option value="Servis filtrace + úprava vody">Servis filtrace + úprava vody</option>
+                                    <option value="Jarní zprovoznění">Jarní zprovoznění</option>
+                                    <option value="Zazimování bazénu">Zazimování bazénu</option>
+                                    <option value="Bazén na klíč">Bazén na klíč</option>
+                                    <option value="Zastřešení bazénu">Zastřešení bazénu</option>
+                                    <option value="Tepelné čerpadlo">Tepelné čerpadlo</option>
+                                </select>
+                            </div>
+                            <div style="display:flex;gap:1rem;">
+                                <div class="admin-form-group" style="flex:1;">
+                                    <label for="newOrderPrice">Cena (Kč)</label>
+                                    <input type="number" id="newOrderPrice" placeholder="3500" min="0">
+                                </div>
+                                <div class="admin-form-group" style="flex:1;">
+                                    <label for="newOrderStatus">Status</label>
+                                    <select id="newOrderStatus">
+                                        <option value="Čeká na schválení">Čeká na schválení</option>
+                                        <option value="V realizaci">V realizaci</option>
+                                        <option value="Dokončeno">Dokončeno</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
+                                <button type="button" class="admin-newsletter-btn" id="assignOrderSubmit">Uložit objednávku</button>
+                                <button type="button" class="admin-newsletter-btn" id="assignOrderCancel" style="background:transparent;border:1px solid rgba(148,163,184,0.3);color:#94a3b8;">Zrušit</button>
+                            </div>
+                        </div>
+
+                        <!-- Customer Invoices -->
+                        <div class="customer-detail-section">
+                            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem;">
+                                <h4>🧾 Faktury</h4>
+                                <button type="button" class="admin-newsletter-btn" id="createInvoiceBtn" style="font-size:0.8rem;padding:0.4rem 0.8rem;">+ Vystavit fakturu</button>
+                            </div>
+                            <div id="customerInvoicesList"><!-- Dynamically rendered --></div>
+                        </div>
+
+                        <!-- Create Invoice Form (hidden by default) -->
+                        <div id="createInvoiceForm" class="customer-assign-form" style="display:none;">
+                            <h4>Nová faktura</h4>
+                            <div style="display:flex;gap:1rem;">
+                                <div class="admin-form-group" style="flex:1;">
+                                    <label for="newInvoiceAmount">Částka (Kč)</label>
+                                    <input type="number" id="newInvoiceAmount" placeholder="5000" min="0">
+                                </div>
+                                <div class="admin-form-group" style="flex:1;">
+                                    <label for="newInvoiceStatus">Stav</label>
+                                    <select id="newInvoiceStatus">
+                                        <option value="Nezaplaceno">Nezaplaceno</option>
+                                        <option value="Zaplaceno">Zaplaceno</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="admin-form-group">
+                                <label for="newInvoiceDesc">Popis</label>
+                                <input type="text" id="newInvoiceDesc" placeholder="Popis faktury..." maxlength="200">
+                            </div>
+                            <div style="display:flex;gap:0.5rem;margin-top:0.5rem;">
+                                <button type="button" class="admin-newsletter-btn" id="createInvoiceSubmit">Vystavit fakturu</button>
+                                <button type="button" class="admin-newsletter-btn" id="createInvoiceCancel" style="background:transparent;border:1px solid rgba(148,163,184,0.3);color:#94a3b8;">Zrušit</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -262,61 +455,242 @@
                         <div class="admin-table-header">
                             <h3>Všechny objednávky</h3>
                         </div>
-                        <div class="admin-order-item">
-                            <div class="admin-order-info">
-                                <strong>AQ-2026-047</strong> &mdash; Martin Novák
-                                <p>Pravidelné čištění bazénu &middot; 5. 3. 2026</p>
-                            </div>
-                            <span class="admin-badge admin-badge-active">Dokončeno</span>
-                            <span class="admin-order-price">3 200 Kč</span>
-                        </div>
-                        <div class="admin-order-item">
-                            <div class="admin-order-info">
-                                <strong>AQ-2026-046</strong> &mdash; Jana Svobodová
-                                <p>Servis filtrace + úprava vody &middot; 4. 3. 2026</p>
-                            </div>
-                            <span class="admin-badge admin-badge-pending">V realizaci</span>
-                            <span class="admin-order-price">4 800 Kč</span>
-                        </div>
-                        <div class="admin-order-item">
-                            <div class="admin-order-info">
-                                <strong>AQ-2026-045</strong> &mdash; Petr Dvořák
-                                <p>Jarní zprovoznění &middot; 3. 3. 2026</p>
-                            </div>
-                            <span class="admin-badge admin-badge-active">Dokončeno</span>
-                            <span class="admin-order-price">3 500 Kč</span>
-                        </div>
-                        <div class="admin-order-item">
-                            <div class="admin-order-info">
-                                <strong>AQ-2026-044</strong> &mdash; Lucie Horáková
-                                <p>Bazén na klíč &mdash; konzultace &middot; 1. 3. 2026</p>
-                            </div>
-                            <span class="admin-badge admin-badge-pending">Čeká na schválení</span>
-                            <span class="admin-order-price">285 000 Kč</span>
-                        </div>
-                        <div class="admin-order-item">
-                            <div class="admin-order-info">
-                                <strong>AQ-2026-043</strong> &mdash; Karel Veselý
-                                <p>Zazimování bazénu &middot; 28. 10. 2025</p>
-                            </div>
-                            <span class="admin-badge admin-badge-active">Dokončeno</span>
-                            <span class="admin-order-price">4 200 Kč</span>
+                        <div id="ordersListContainer">
+                            <!-- Dynamically rendered by JS -->
                         </div>
                     </div>
                 </div>
 
-                <!-- ===== NEWSLETTER PANEL ===== -->
-                <div class="admin-panel" id="panelNewsletter">
+                <!-- ===== ZPRÁVY PANEL ===== -->
+                <div class="admin-panel" id="panelZpravy">
                     <div class="admin-main-header">
-                        <h1>Newsletter</h1>
-                        <p>Rozeslání newsletteru odběratelům</p>
+                        <h1>Zprávy</h1>
+                        <p>Zprávy z kontaktního formuláře</p>
                     </div>
+                    <div class="admin-table-card">
+                        <div class="admin-table-header">
+                            <h3>Příchozí zprávy</h3>
+                            <span id="messagesCount" style="font-size:0.85rem;color:#64748b;">0 zpráv</span>
+                        </div>
+                        <div id="messagesListContainer">
+                            <!-- Dynamically rendered -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== NOVINKY (BLOG) PANEL ===== -->
+                <div class="admin-panel" id="panelNovinky">
+                    <div class="admin-main-header">
+                        <h1>Novinky</h1>
+                        <p>Správa blogových příspěvků a novinek</p>
+                    </div>
+
+                    <!-- Create / Edit Post Form -->
+                    <div class="admin-newsletter-card" id="postFormCard">
+                        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+                            <h3 id="postFormTitle">Nový příspěvek</h3>
+                            <button class="admin-newsletter-btn" id="postFormCancel" style="display:none;background:transparent;border:1px solid rgba(148,163,184,0.3);color:#94a3b8;font-size:0.85rem;padding:0.4rem 1rem;">Zrušit</button>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="postTitle">Nadpis</label>
+                            <input type="text" id="postTitle" placeholder="Název článku..." maxlength="120">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="postCategory">Kategorie</label>
+                            <select id="postCategory">
+                                <option value="novinky">Novinky</option>
+                                <option value="tipy">Tipy a rady</option>
+                                <option value="akce">Akce a slevy</option>
+                                <option value="servis">Servis</option>
+                            </select>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="postExcerpt">Krátký popis</label>
+                            <input type="text" id="postExcerpt" placeholder="Stručný popis článku pro přehled..." maxlength="200">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Obsah článku</label>
+                            <div class="editor-toolbar" id="editorToolbar">
+                                <button type="button" data-cmd="bold" title="Tučné"><b>B</b></button>
+                                <button type="button" data-cmd="italic" title="Kurzíva"><i>I</i></button>
+                                <button type="button" data-cmd="underline" title="Podtržení"><u>U</u></button>
+                                <span class="editor-separator"></span>
+                                <button type="button" data-cmd="formatBlock" data-value="H2" title="Nadpis H2">H2</button>
+                                <button type="button" data-cmd="formatBlock" data-value="H3" title="Nadpis H3">H3</button>
+                                <span class="editor-separator"></span>
+                                <button type="button" data-cmd="insertUnorderedList" title="Odrážky">•&nbsp;≡</button>
+                                <button type="button" data-cmd="insertOrderedList" title="Číslovaný seznam">1.≡</button>
+                                <span class="editor-separator"></span>
+                                <button type="button" data-cmd="createLink" title="Odkaz">🔗</button>
+                                <button type="button" id="editorInsertImage" title="Vložit obrázek do textu">🖼️</button>
+                            </div>
+                            <div class="editor-area" id="postContent" contenteditable="true" data-placeholder="Napište obsah článku..."></div>
+                            <input type="file" id="editorImageInput" accept="image/*" style="display:none;">
+                        </div>
+                        <div class="admin-form-group">
+                            <label>Hlavní obrázek článku (volitelné)</label>
+                            <div class="editor-image-upload">
+                                <button type="button" class="editor-upload-btn" id="postImageUploadBtn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                    Nahrát obrázek
+                                </button>
+                                <input type="file" id="postImageFile" accept="image/*" style="display:none;">
+                                <span id="postImageName" style="font-size:0.8rem;color:#64748b;"></span>
+                            </div>
+                            <div id="postImagePreview" class="editor-image-preview" style="display:none;">
+                                <img id="postImagePreviewImg" src="" alt="Náhled">
+                                <button type="button" id="postImageRemove" class="editor-image-remove" title="Odebrat obrázek">&times;</button>
+                            </div>
+                            <input type="hidden" id="postImage">
+                        </div>
+                        <div class="admin-form-actions">
+                            <label class="admin-checkbox-label">
+                                <input type="checkbox" id="postSendNewsletter" checked>
+                                Odeslat jako newsletter (156 odběratelů)
+                            </label>
+                            <div class="admin-form-actions-right">
+                                <button class="admin-newsletter-btn" id="postSaveDraft" style="background:transparent;border:1px solid rgba(148,163,184,0.3);color:#94a3b8;">Uložit koncept</button>
+                                <button class="admin-newsletter-btn" id="postPublish">Publikovat</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Posts List -->
+                    <div class="admin-table-card">
+                        <div class="admin-table-header">
+                            <h3>Všechny příspěvky</h3>
+                            <span id="postCount" style="font-size:0.85rem;color:#64748b;">0 příspěvků</span>
+                        </div>
+                        <div id="adminPostsList">
+                            <!-- Dynamically rendered -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ===== STATISTIKY PANEL ===== -->
+                <div class="admin-panel" id="panelStatistiky">
+                    <div class="admin-main-header">
+                        <h1>Statistiky webu</h1>
+                        <p>Přehled návštěvnosti, zdrojů a obsahu</p>
+                    </div>
+
+                    <!-- Period selector -->
+                    <div class="stats-period-selector">
+                        <button class="stats-period-btn active" data-period="week">Týden</button>
+                        <button class="stats-period-btn" data-period="month">Měsíc</button>
+                        <button class="stats-period-btn" data-period="year">Rok</button>
+                    </div>
+
+                    <!-- Key Metrics -->
+                    <div class="stats-metrics-grid" id="statsMetrics">
+                        <!-- Dynamically rendered -->
+                    </div>
+
+                    <!-- Traffic Chart -->
+                    <div class="stats-card" style="margin-bottom: 1.5rem;">
+                        <h3>📊 Návštěvnost</h3>
+                        <div class="stats-chart-container" id="statsChart">
+                            <!-- SVG chart rendered by JS -->
+                        </div>
+                    </div>
+
+                    <div class="stats-row">
+                        <!-- Top Pages -->
+                        <div class="stats-card">
+                            <h3>🏆 Nejnavštěvovanější stránky</h3>
+                            <div id="statsTopPages">
+                                <!-- Dynamically rendered -->
+                            </div>
+                        </div>
+
+                        <!-- Content Stats -->
+                        <div class="stats-card">
+                            <h3>📝 Obsah webu</h3>
+                            <div id="statsContent">
+                                <!-- Dynamically rendered -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stats-row">
+                        <!-- Devices -->
+                        <div class="stats-card">
+                            <h3>📱 Zařízení</h3>
+                            <div id="statsDevices">
+                                <!-- Dynamically rendered -->
+                            </div>
+                        </div>
+
+                        <!-- Sources -->
+                        <div class="stats-card">
+                            <h3>🔗 Zdroje návštěv</h3>
+                            <div id="statsSources">
+                                <!-- Dynamically rendered -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== GALERIE PANEL ===== -->
+                <div class="admin-panel" id="panelGalerie">
+                    <div class="admin-main-header">
+                        <h1>Galerie</h1>
+                        <p>Správa obrázků v galerii — nahrávání, editace a SEO optimalizace</p>
+                    </div>
+
+                    <!-- Upload Form -->
                     <div class="admin-newsletter-card">
-                        <h3>Nový newsletter</h3>
-                        <textarea id="newsletterMessage" placeholder="Napište zprávu pro odběratele..."></textarea>
-                        <div class="admin-newsletter-meta">
-                            <span>156 odběratelů bude osloveno</span>
-                            <button class="admin-newsletter-btn" id="newsletterSendBtn">Odeslat newsletter</button>
+                        <h3>Přidat obrázek</h3>
+                        <div class="admin-form-group">
+                            <label>Obrázek</label>
+                            <div class="editor-image-upload">
+                                <button type="button" class="editor-upload-btn" id="galleryUploadBtn">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                                    Vybrat obrázek
+                                </button>
+                                <input type="file" id="galleryFileInput" accept="image/*" style="display:none;">
+                                <span id="galleryFileName" style="font-size:0.8rem;color:#64748b;"></span>
+                            </div>
+                            <div id="galleryPreview" class="editor-image-preview" style="display:none;">
+                                <img id="galleryPreviewImg" src="" alt="Náhled">
+                            </div>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="galleryAlt">Popis obrázku <span style="font-size:0.75rem;color:#64748b;">(auto-generován při ponechání prázdného)</span></label>
+                            <input type="text" id="galleryAlt" placeholder="Např. Čištění bazénu v Jihlavě" maxlength="200">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="galleryCategory">Kategorie</label>
+                            <select id="galleryCategory">
+                                <option value="realizace">Realizace</option>
+                                <option value="cisteni">Čištění</option>
+                                <option value="bazeny">Bazény</option>
+                                <option value="zastreseni">Zastřešení</option>
+                                <option value="vodni-hospodarstvi">Vodní hospodářství</option>
+                            </select>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <button class="admin-newsletter-btn" id="galleryAddBtn">Přidat do galerie</button>
+                        </div>
+                    </div>
+
+                    <!-- Gallery Filter + Grid -->
+                    <div class="admin-table-card" style="margin-top: 1.5rem;">
+                        <div class="admin-table-header">
+                            <h3>Obrázky v galerii</h3>
+                            <span id="galleryCount" style="font-size:0.85rem;color:#64748b;">0 obrázků</span>
+                        </div>
+                        <div class="admin-gallery-filter" id="adminGalleryFilter">
+                            <button class="admin-gallery-filter-btn active" data-filter="all">Vše</button>
+                            <button class="admin-gallery-filter-btn" data-filter="cisteni">Čištění</button>
+                            <button class="admin-gallery-filter-btn" data-filter="bazeny">Bazény</button>
+                            <button class="admin-gallery-filter-btn" data-filter="zastreseni">Zastřešení</button>
+                            <button class="admin-gallery-filter-btn" data-filter="realizace">Realizace</button>
+                            <button class="admin-gallery-filter-btn" data-filter="vodni-hospodarstvi">Vodní hosp.</button>
+                        </div>
+                        <div class="admin-gallery-grid" id="adminGalleryGrid">
+                            <!-- Dynamically rendered -->
                         </div>
                     </div>
                 </div>
@@ -325,21 +699,89 @@
                 <div class="admin-panel" id="panelSettings">
                     <div class="admin-main-header">
                         <h1>Nastavení</h1>
-                        <p>Konfigurace administračního panelu</p>
+                        <p>Konfigurace webu a administračního panelu</p>
                     </div>
+
+                    <!-- Profile Settings -->
                     <div class="admin-newsletter-card">
-                        <h3>Obecná nastavení</h3>
-                        <p style="color: #94a3b8; font-size: 0.9rem;">Toto je demo administrační panel. Nastavení nejsou funkční.</p>
+                        <h3>Profil administrátora</h3>
+                        <div class="admin-form-group">
+                            <label for="settingsName">Jméno</label>
+                            <input type="text" id="settingsName" placeholder="Vaše jméno" maxlength="100">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="settingsEmail">E-mail</label>
+                            <input type="email" id="settingsEmail" placeholder="admin@aquaservis.cz" maxlength="200">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="settingsPhone">Telefon</label>
+                            <input type="tel" id="settingsPhone" placeholder="+420 777 888 999" maxlength="20">
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <button class="admin-newsletter-btn" id="settingsSaveProfile">Uložit profil</button>
+                        </div>
+                    </div>
+
+                    <!-- Web Settings -->
+                    <div class="admin-newsletter-card" style="margin-top: 1.5rem;">
+                        <h3>Nastavení webu</h3>
+                        <div class="admin-form-group">
+                            <label for="settingsWebName">Název webu</label>
+                            <input type="text" id="settingsWebName" placeholder="AquaServis Praha" maxlength="100">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="settingsWebDesc">Popis webu</label>
+                            <textarea id="settingsWebDesc" rows="3" placeholder="Profesionální servis bazénů, zastřešení a vodní hospodářství" maxlength="300"></textarea>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="settingsWebEmail">Kontaktní e-mail</label>
+                            <input type="email" id="settingsWebEmail" placeholder="info@aquaservis.cz" maxlength="200">
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="settingsWebPhone">Kontaktní telefon</label>
+                            <input type="tel" id="settingsWebPhone" placeholder="+420 123 456 789" maxlength="20">
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <button class="admin-newsletter-btn" id="settingsSaveWeb">Uložit nastavení webu</button>
+                        </div>
+                    </div>
+
+                    <!-- Notifications -->
+                    <div class="admin-newsletter-card" style="margin-top: 1.5rem;">
+                        <h3>Notifikace</h3>
+                        <div class="admin-settings-toggle-row">
+                            <label for="settingsEmailNotif">E-mailové notifikace o nových zprávách</label>
+                            <label class="admin-toggle-switch">
+                                <input type="checkbox" id="settingsEmailNotif" checked>
+                                <span class="admin-toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="admin-settings-toggle-row">
+                            <label for="settingsOrderNotif">Notifikace o nových objednávkách</label>
+                            <label class="admin-toggle-switch">
+                                <input type="checkbox" id="settingsOrderNotif" checked>
+                                <span class="admin-toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Data Management -->
+                    <div class="admin-newsletter-card" style="margin-top: 1.5rem;">
+                        <h3>Správa dat</h3>
+                        <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 1rem;">Export a správa demo dat administračního panelu.</p>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <button class="admin-newsletter-btn" id="settingsExportData" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border-color: rgba(16, 185, 129, 0.25);">
+                                Export dat (JSON)
+                            </button>
+                            <button class="admin-newsletter-btn" id="settingsResetData" style="background: rgba(239, 68, 68, 0.1); color: #ef4444; border-color: rgba(239, 68, 68, 0.2);">
+                                Reset demo dat
+                            </button>
+                        </div>
                     </div>
                 </div>
 
             </main>
         </div>
-
-        <!-- Mobile sidebar toggle -->
-        <button class="admin-mobile-toggle" id="adminMobileToggle" aria-label="Menu">
-            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        </button>
 
     </div>
 
@@ -347,6 +789,7 @@
     <div id="cookie-banner" class="cookie-banner"></div>
 
     <!-- Scripts -->
+    <script src="js/auth.js?v=14" defer></script>
     <script src="js/admin.js?v=14" defer></script>
     <script src="js/cookies.js?v=14" defer></script>
 </body>
