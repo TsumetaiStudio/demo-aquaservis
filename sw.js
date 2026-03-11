@@ -1,4 +1,4 @@
-var CACHE_NAME = 'cistimebazeny-v4';
+var CACHE_NAME = 'cistimebazeny-v5';
 var urlsToCache = [
     '/',
     '/index.html',
@@ -10,7 +10,7 @@ var urlsToCache = [
     '/js/main.js?v=14',
     '/js/cookies.js?v=14',
     '/manifest.json',
-    '/favicon.svg?v=2'
+    '/pool-icon.svg'
 ];
 
 self.addEventListener('install', function(event) {
@@ -23,6 +23,13 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
+    // Force fresh favicon/manifest — never serve from cache
+    if (event.request.url.indexOf('favicon') !== -1 ||
+        event.request.url.indexOf('pool-icon') !== -1 ||
+        event.request.url.indexOf('manifest') !== -1) {
+        event.respondWith(fetch(event.request));
+        return;
+    }
     event.respondWith(
         fetch(event.request).then(function(response) {
             if (response && response.status === 200 && response.type === 'basic') {
@@ -42,10 +49,10 @@ self.addEventListener('activate', function(event) {
     event.waitUntil(
         caches.keys().then(function(cacheNames) {
             return Promise.all(
-                cacheNames.filter(function(name) {
-                    return name !== CACHE_NAME;
-                }).map(function(name) {
-                    return caches.delete(name);
+                cacheNames.map(function(name) {
+                    if (name !== CACHE_NAME) {
+                        return caches.delete(name);
+                    }
                 })
             );
         }).then(function() {

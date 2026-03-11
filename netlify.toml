@@ -10,6 +10,28 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
+# Force no-cache on favicon and manifest
+[[headers]]
+  for = "/pool-icon.svg"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Old favicon → new
+[[redirects]]
+  from = "/favicon.svg"
+  to = "/pool-icon.svg"
+  status = 301
+
 # Pretty URLs
 [[redirects]]
   from = "/sluzby"
