@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "aquaservis-dev",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", ".", "-l", "8890", "--no-clipboard", "--cors"],
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["node_modules/.bin/serve", ".", "-l", "8890", "--no-clipboard", "--cors"],
       "port": 8890
     },
     {

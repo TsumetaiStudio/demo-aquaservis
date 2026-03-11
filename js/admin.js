@@ -70,22 +70,31 @@
                 return;
             }
 
-            var result = window.AquaAuth.login(email, password);
+            var submitBtn = loginForm.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
 
-            if (!result.success) {
-                showLoginError(result.error);
-                return;
-            }
+            window.AquaAuth.login(email, password).then(function(result) {
+                if (!result.success) {
+                    showLoginError(result.error);
+                    if (submitBtn) submitBtn.disabled = false;
+                    return;
+                }
 
-            if (result.user.role !== 'admin') {
-                showLoginError('Tento účet nemá oprávnění administrátora.');
-                window.AquaAuth.logout();
-                return;
-            }
+                if (result.user.role !== 'admin') {
+                    showLoginError('Tento účet nemá oprávnění administrátora.');
+                    window.AquaAuth.logout();
+                    if (submitBtn) submitBtn.disabled = false;
+                    return;
+                }
 
-            // Success — show dashboard
-            if (loginScreen) loginScreen.style.display = 'none';
-            if (dashboard) dashboard.classList.add('active');
+                // Success — show dashboard
+                if (loginScreen) loginScreen.style.display = 'none';
+                if (dashboard) dashboard.classList.add('active');
+                if (submitBtn) submitBtn.disabled = false;
+            }).catch(function() {
+                showLoginError('Chyba při přihlašování. Zkuste to znovu.');
+                if (submitBtn) submitBtn.disabled = false;
+            });
         });
     }
 

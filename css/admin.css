@@ -3256,6 +3256,9 @@
     background: rgba(255, 255, 255, 0.85);
     border-color: rgba(148, 163, 184, 0.15);
 }
+[data-theme="light"] .admin-newsletter-card h3 {
+    color: #0f172a;
+}
 
 /* Blog posts */
 [data-theme="light"] .admin-post-card {
