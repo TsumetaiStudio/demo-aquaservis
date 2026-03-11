@@ -8,10 +8,10 @@
     "theme_color": "#0284c7",
     "icons": [
         {
-            "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='100' fill='%230284c7'/%3E%3Cpath d='M96 300c40-70 80-70 120 0s80 70 120 0 80-70 120 0' stroke='white' stroke-width='30' fill='none' stroke-linecap='round'/%3E%3Cpath d='M96 220c40-70 80-70 120 0s80 70 120 0 80-70 120 0' stroke='white' stroke-width='30' fill='none' stroke-linecap='round' opacity='.4'/%3E%3C/svg%3E",
-            "sizes": "512x512",
+            "src": "favicon.svg?v=2",
+            "sizes": "any",
             "type": "image/svg+xml",
-            "purpose": "any maskable"
+            "purpose": "any"
         }
     ]
 }
