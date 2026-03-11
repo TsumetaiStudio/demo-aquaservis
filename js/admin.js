@@ -1319,7 +1319,7 @@
         var modal = document.createElement('div');
         modal.className = 'admin-gallery-edit-modal';
         modal.innerHTML = '<div class="admin-gallery-edit-content">'
-            + '<h3 style="color:#f8fafc;margin-bottom:1rem;">Upravit popis obrázku</h3>'
+            + '<h3 class="admin-modal-title">Upravit popis obrázku</h3>'
             + '<div style="margin-bottom:1rem;border-radius:0.5rem;overflow:hidden;max-height:200px;"><img src="' + escapeHTML(item.src) + '" style="width:100%;height:auto;display:block;object-fit:cover;" alt=""></div>'
             + '<div class="admin-form-group"><label>Popis (alt text)</label>'
             + '<input type="text" id="editGalleryAlt" value="' + escapeHTML(item.alt || '') + '" maxlength="200" style="width:100%;"></div>'
