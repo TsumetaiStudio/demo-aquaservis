@@ -1,4 +1,4 @@
-var CACHE_NAME = 'cistimebazeny-v3';
+var CACHE_NAME = 'cistimebazeny-v4';
 var urlsToCache = [
     '/',
     '/index.html',
@@ -9,7 +9,8 @@ var urlsToCache = [
     '/css/cookies.css?v=14',
     '/js/main.js?v=14',
     '/js/cookies.js?v=14',
-    '/manifest.json'
+    '/manifest.json',
+    '/favicon.svg?v=2'
 ];
 
 self.addEventListener('install', function(event) {
