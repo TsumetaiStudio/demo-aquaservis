@@ -42,23 +42,62 @@
         }
     ];
 
-    // ─── Initialize storage with default accounts if empty ───
+    // ─── Legacy emails to remove (from pre-security-update versions) ───
+    var LEGACY_EMAILS = ['pekarna@webzitra.cz'];
+
+    // ─── Check if a password looks like a SHA-256 hash (64 hex chars) ───
+    function isHashedPassword(pw) {
+        return typeof pw === 'string' && pw.length === 64 && /^[0-9a-f]{64}$/.test(pw);
+    }
+
+    // ─── Initialize storage with default accounts + migrate old data ───
     function initStorage() {
         var stored = localStorage.getItem(STORAGE_KEY);
         if (!stored) {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_ACCOUNTS));
-        } else {
-            var users = JSON.parse(stored);
-            var updated = false;
-            DEFAULT_ACCOUNTS.forEach(function(def) {
-                var exists = users.some(function(u) { return u.email === def.email; });
-                if (!exists) {
-                    users.push(def);
-                    updated = true;
-                }
-            });
-            if (updated) localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+            return;
         }
+
+        try {
+            var users = JSON.parse(stored);
+        } catch (e) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(DEFAULT_ACCOUNTS));
+            return;
+        }
+
+        var updated = false;
+
+        // 1. Remove legacy accounts (old emails from before security update)
+        var beforeLen = users.length;
+        users = users.filter(function(u) {
+            return LEGACY_EMAILS.indexOf(u.email.toLowerCase()) === -1;
+        });
+        if (users.length !== beforeLen) updated = true;
+
+        // 2. Force-update default accounts (ensure hashed passwords + correct data)
+        DEFAULT_ACCOUNTS.forEach(function(def) {
+            var idx = -1;
+            for (var i = 0; i < users.length; i++) {
+                if (users[i].email.toLowerCase() === def.email.toLowerCase()) {
+                    idx = i;
+                    break;
+                }
+            }
+            if (idx === -1) {
+                // Default account missing — add it
+                users.push(def);
+                updated = true;
+            } else if (!isHashedPassword(users[idx].password)) {
+                // Existing account has plaintext password — replace with hashed default
+                users[idx].password = def.password;
+                users[idx].firstName = def.firstName;
+                users[idx].lastName = def.lastName;
+                users[idx].role = def.role;
+                updated = true;
+            }
+        });
+
+        if (updated) localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
     }
 
     // ─── Get all users ───
