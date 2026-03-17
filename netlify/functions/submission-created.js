@@ -2,7 +2,7 @@
 // Sends email notification to admin via Netlify's built-in email service
 
 // Set your notification email in Netlify environment variables (NOTIFICATION_EMAIL)
-const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || "info@cistimebazeny.cz";
+const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || "info@example.cz";
 
 exports.handler = async function(event) {
     const payload = JSON.parse(event.body).payload;
@@ -22,9 +22,9 @@ exports.handler = async function(event) {
 
     if (formName === "contact") {
         // Contact form submission
-        subject = `Nova poptavka od ${data.name || "Neznamy"} — CistimeBazeny.cz`;
+        subject = `Nova poptavka od ${data.name || "Neznamy"} — AquaPool Demo`;
         body = [
-            `NOVÁ POPTÁVKA — CistimeBazeny.cz`,
+            `NOVÁ POPTÁVKA — AquaPool Demo`,
             `========================================`,
             ``,
             `Datum: ${formattedDate}`,
@@ -39,12 +39,12 @@ exports.handler = async function(event) {
             `----------------------------------------`,
             `Přílohy: ${data.attachment ? "Ano (viz Netlify dashboard)" : "Žádné"}`,
             ``,
-            `Tento e-mail byl automaticky odeslán z webu CistimeBazeny.cz`,
+            `Tento e-mail byl automaticky odeslán z webu AquaPool Demo`,
         ].join("\n");
 
     } else if (formName === "newsletter") {
         // Newsletter signup
-        subject = `Novy odberatel newsletteru — CistimeBazeny.cz`;
+        subject = `Novy odberatel newsletteru — AquaPool Demo`;
         body = [
             `NOVÝ ODBĚRATEL NEWSLETTERU`,
             `========================================`,
@@ -52,14 +52,14 @@ exports.handler = async function(event) {
             `Datum: ${formattedDate}`,
             `E-mail: ${data.email || "—"}`,
             ``,
-            `Tento e-mail byl automaticky odeslán z webu CistimeBazeny.cz`,
+            `Tento e-mail byl automaticky odeslán z webu AquaPool Demo`,
         ].join("\n");
 
     } else if (formName === "complaint") {
         // Complaint form
-        subject = `Nova reklamace od ${data.name || "Neznamy"} — CistimeBazeny.cz`;
+        subject = `Nova reklamace od ${data.name || "Neznamy"} — AquaPool Demo`;
         body = [
-            `NOVÁ REKLAMACE — CistimeBazeny.cz`,
+            `NOVÁ REKLAMACE — AquaPool Demo`,
             `========================================`,
             ``,
             `Datum: ${formattedDate}`,
@@ -71,12 +71,12 @@ exports.handler = async function(event) {
             `Popis reklamace:`,
             `${data.description || "—"}`,
             ``,
-            `Tento e-mail byl automaticky odeslán z webu CistimeBazeny.cz`,
+            `Tento e-mail byl automaticky odeslán z webu AquaPool Demo`,
         ].join("\n");
 
     } else if (formName === "registration") {
         // Registration form
-        subject = `Nova registrace — ${data.name || "Neznamy"} — CistimeBazeny.cz`;
+        subject = `Nova registrace — ${data.name || "Neznamy"} — AquaPool Demo`;
         body = [
             `NOVÁ REGISTRACE ZÁKAZNÍKA`,
             `========================================`,
@@ -87,12 +87,12 @@ exports.handler = async function(event) {
             `Telefon: ${data.phone || "—"}`,
             `Adresa: ${data.address || "—"}`,
             ``,
-            `Tento e-mail byl automaticky odeslán z webu CistimeBazeny.cz`,
+            `Tento e-mail byl automaticky odeslán z webu AquaPool Demo`,
         ].join("\n");
 
     } else {
         // Generic form
-        subject = `Novy formular (${formName}) — CistimeBazeny.cz`;
+        subject = `Novy formular (${formName}) — AquaPool Demo`;
         const fields = Object.entries(data)
             .filter(([key]) => !key.startsWith("bot-") && key !== "form-name")
             .map(([key, val]) => `${key}: ${val}`)
@@ -105,7 +105,7 @@ exports.handler = async function(event) {
             ``,
             fields,
             ``,
-            `Tento e-mail byl automaticky odeslán z webu CistimeBazeny.cz`,
+            `Tento e-mail byl automaticky odeslán z webu AquaPool Demo`,
         ].join("\n");
     }
 

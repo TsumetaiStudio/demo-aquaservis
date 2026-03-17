@@ -1,4 +1,4 @@
-var CACHE_NAME = 'cistimebazeny-v5';
+var CACHE_NAME = 'aquapool-v5';
 var urlsToCache = [
     '/',
     '/index.html',

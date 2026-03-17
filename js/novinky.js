@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var POST_KEY = 'aquaservis_posts';
+    var POST_KEY = 'aquapool_posts';
     var grid = document.getElementById('novinkyGrid');
     if (!grid) return;
 
@@ -14,7 +14,7 @@
             content: 'Blíží se bazénová sezóna a je čas připravit váš bazén na léto. V tomto článku vám přinášíme kompletní průvodce jarním zprovozněním.\n\nPrvním krokem je důkladná kontrola filtračního systému. Zkontrolujte stav filtračního písku a případně ho vyměňte. Doporučujeme výměnu každé 3–4 roky.\n\nDalším krokem je napuštění bazénu čistou vodou a úprava chemie. Změřte pH hodnotu (ideálně 7,0–7,4) a hladinu chloru. Nezapomeňte na šokovou chloraci při prvním napuštění.\n\nPokud si nejste jisti, kontaktujte nás — rádi vám s jarním zprovozněním pomůžeme!',
             category: 'tipy',
             imageUrl: '',
-            author: 'Admin WebZitra',
+            author: 'Redakce AquaPool',
             status: 'published',
             newsletterSent: true,
             createdAt: '2026-03-01T10:00:00.000Z',
@@ -28,7 +28,7 @@
             content: 'S radostí oznamujeme, že od března 2026 nabízíme kompletní služby v oblasti tepelných čerpadel pro bazény.\n\nTepelné čerpadlo je nejefektivnější způsob ohřevu bazénové vody. Na každou investovanou kWh elektrické energie získáte 4–6 kWh tepla.\n\nNabízíme instalaci, servis i poradenství při výběru správného modelu pro váš bazén. Pracujeme s ověřenými značkami a poskytujeme záruku na všechny instalace.\n\nKontaktujte nás pro nezávaznou konzultaci a cenovou nabídku.',
             category: 'novinky',
             imageUrl: '',
-            author: 'Admin WebZitra',
+            author: 'Redakce AquaPool',
             status: 'published',
             newsletterSent: true,
             createdAt: '2026-02-15T09:00:00.000Z',
@@ -42,7 +42,7 @@
             content: 'Připravte se na léto včas! Do konce dubna 2026 nabízíme 20% slevu na kompletní čištění bazénů.\n\nAkce zahrnuje:\n— Vysátí dna a stěn bazénu\n— Čištění vodní linky\n— Kontrola a čištění filtrace\n— Úprava chemie vody\n— Vizuální kontrola technologie\n\nAkci lze kombinovat s jarním zprovozněním. Objednejte se ještě dnes — kapacita je omezená!',
             category: 'akce',
             imageUrl: '',
-            author: 'Admin WebZitra',
+            author: 'Redakce AquaPool',
             status: 'published',
             newsletterSent: false,
             createdAt: '2026-02-01T08:00:00.000Z',

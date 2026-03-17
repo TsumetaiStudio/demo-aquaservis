@@ -221,7 +221,7 @@
 
     // ─── Load Dynamic Gallery Images from localStorage ───
     function loadDynamicGalleryImages() {
-        var GALLERY_KEY = 'aquaservis_gallery';
+        var GALLERY_KEY = 'aquapool_gallery';
         try {
             var data = localStorage.getItem(GALLERY_KEY);
             if (!data) return;

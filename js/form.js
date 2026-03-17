@@ -131,7 +131,7 @@
             var serviceVal = document.getElementById('service') ? document.getElementById('service').value : '';
             var messageVal = document.getElementById('message') ? document.getElementById('message').value.trim() : '';
 
-            var MESSAGES_KEY = 'aquaservis_messages';
+            var MESSAGES_KEY = 'aquapool_messages';
             var messages = [];
             var stored = localStorage.getItem(MESSAGES_KEY);
             if (stored) messages = JSON.parse(stored);
@@ -155,8 +155,8 @@
             localStorage.setItem(MESSAGES_KEY, JSON.stringify(messages));
 
             // Log simulated email notification
-            console.log('[AquaServis] Simulovaný email odeslán adminovi:', {
-                to: 'admin@aquaservis.cz',
+            console.log('[AquaPool] Simulovaný email odeslán adminovi:', {
+                to: 'admin@example.cz',
                 subject: 'Nová poptávka od ' + nameVal,
                 body: 'Služba: ' + serviceVal + '\nZpráva: ' + messageVal + '\nKontakt: ' + emailVal + ' / ' + phoneVal
             });

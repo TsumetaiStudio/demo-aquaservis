@@ -451,7 +451,7 @@
 
         // Read session directly from localStorage (no AquaAuth dependency)
         var sessionRaw = null;
-        try { sessionRaw = localStorage.getItem('aquaservis_session'); } catch(e) {}
+        try { sessionRaw = localStorage.getItem('aquapool_session'); } catch(e) {}
         if (!sessionRaw) return;
         var session = null;
         try { session = JSON.parse(sessionRaw); } catch(e) {}

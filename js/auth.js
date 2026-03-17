@@ -1,13 +1,13 @@
 /**
- * AquaServis — Demo Auth System (localStorage)
+ * AquaPool — Demo Auth System (localStorage)
  * Handles user registration, login, and session management.
  * Passwords are stored as SHA-256 hashes — never in plaintext.
  */
 (function() {
     'use strict';
 
-    var STORAGE_KEY = 'aquaservis_users';
-    var SESSION_KEY = 'aquaservis_session';
+    var STORAGE_KEY = 'aquapool_users';
+    var SESSION_KEY = 'aquapool_session';
 
     // ─── SHA-256 hash (Web Crypto API) ───
     function sha256(message) {
@@ -26,7 +26,7 @@
             lastName: 'Demo',
             email: 'zakaznik@mail.cz',
             password: '02b345c6ed9bf2bf9ab67ba2bcb6ba0caad9402aec50150a62cedd6a56599a85',
-            phone: '+420 607 241 000',
+            phone: '+420 600 000 000',
             role: 'customer',
             createdAt: '2026-03-10T08:00:00.000Z'
         },
@@ -34,7 +34,7 @@
             id: 2,
             firstName: 'Admin',
             lastName: 'Spr\u00e1vce',
-            email: 'admin@cistimebazeny.cz',
+            email: 'admin@example.cz',
             password: '02b345c6ed9bf2bf9ab67ba2bcb6ba0caad9402aec50150a62cedd6a56599a85',
             phone: '+420 600 000 000',
             role: 'admin',
@@ -43,7 +43,7 @@
     ];
 
     // ─── Legacy emails to remove (from pre-security-update versions) ───
-    var LEGACY_EMAILS = ['pekarna@webzitra.cz'];
+    var LEGACY_EMAILS = ['legacy@example.cz'];
 
     // ─── Check if a password looks like a SHA-256 hash (64 hex chars) ───
     function isHashedPassword(pw) {

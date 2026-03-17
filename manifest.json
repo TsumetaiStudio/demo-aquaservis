@@ -1,6 +1,6 @@
 {
-    "name": "AquaServis Praha",
-    "short_name": "AquaServis",
+    "name": "AquaPool Demo",
+    "short_name": "AquaPool",
     "description": "Profesionální péče o bazény v Praze a Středočeském kraji",
     "start_url": "/",
     "display": "standalone",

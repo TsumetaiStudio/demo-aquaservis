@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url><loc>https://demo-aquaservis.netlify.app/</loc><priority>1.0</priority></url>
-    <url><loc>https://demo-aquaservis.netlify.app/sluzby.html</loc><priority>0.9</priority></url>
-    <url><loc>https://demo-aquaservis.netlify.app/cenik.html</loc><priority>0.8</priority></url>
-    <url><loc>https://demo-aquaservis.netlify.app/galerie.html</loc><priority>0.7</priority></url>
-    <url><loc>https://demo-aquaservis.netlify.app/o-nas.html</loc><priority>0.7</priority></url>
-    <url><loc>https://demo-aquaservis.netlify.app/novinky.html</loc><priority>0.7</priority></url>
-    <url><loc>https://demo-aquaservis.netlify.app/kontakt.html</loc><priority>0.8</priority></url>
-    <url><loc>https://demo-aquaservis.netlify.app/registrace.html</loc><priority>0.5</priority></url>
-    <url><loc>https://demo-aquaservis.netlify.app/smluvni-podminky.html</loc><priority>0.3</priority></url>
-    <url><loc>https://demo-aquaservis.netlify.app/reklamacni-rad.html</loc><priority>0.3</priority></url>
+    <url><loc>https://demo-aquapool.netlify.app/</loc><priority>1.0</priority></url>
+    <url><loc>https://demo-aquapool.netlify.app/sluzby.html</loc><priority>0.9</priority></url>
+    <url><loc>https://demo-aquapool.netlify.app/cenik.html</loc><priority>0.8</priority></url>
+    <url><loc>https://demo-aquapool.netlify.app/galerie.html</loc><priority>0.7</priority></url>
+    <url><loc>https://demo-aquapool.netlify.app/o-nas.html</loc><priority>0.7</priority></url>
+    <url><loc>https://demo-aquapool.netlify.app/novinky.html</loc><priority>0.7</priority></url>
+    <url><loc>https://demo-aquapool.netlify.app/kontakt.html</loc><priority>0.8</priority></url>
+    <url><loc>https://demo-aquapool.netlify.app/registrace.html</loc><priority>0.5</priority></url>
+    <url><loc>https://demo-aquapool.netlify.app/smluvni-podminky.html</loc><priority>0.3</priority></url>
+    <url><loc>https://demo-aquapool.netlify.app/reklamacni-rad.html</loc><priority>0.3</priority></url>
 </urlset>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="12" fill="#ecfeff"/>
+  <rect x="12" y="12" width="36" height="36" rx="10" fill="#0891b2"/>
+  <path d="M22 30 a8 8 0 1 1 16 0 a8 8 0 1 1 -16 0" stroke="white" stroke-width="2" fill="none"/>
+  <path d="M30 22v4 M30 34v4 M22 30h4 M34 30h4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="30" cy="30" r="3" fill="white"/>
+  <text x="58" y="28" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700" fill="#155e75">Aqua</text>
+  <text x="99" y="28" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="400" fill="#0891b2">Tech</text>
+  <text x="58" y="44" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" letter-spacing="0.1em" fill="#64748b">TECHNOLOGIE</text>
+</svg>
