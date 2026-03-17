@@ -1,12 +1,12 @@
 /* ========================================================
-   AquaServis AI Chat Widget
+   AquaPool AI Chat Widget
    Self-contained — creates all DOM elements dynamically
    ======================================================== */
 
 (function () {
   "use strict";
 
-  var STORAGE_KEY = "aquaservis_chat_history";
+  var STORAGE_KEY = "aquapool_chat_history";
   var MAX_HISTORY = 50;
 
   // ─── SVG Icons ───
@@ -62,7 +62,7 @@
         "dobr\u00fd ve\u010der",
       ],
       response:
-        "Dobr\u00fd den! \ud83d\udc4b Jsem AquaServis asistent. Jak v\u00e1m mohu pomoci s baz\u00e9nem?",
+        "Dobr\u00fd den! \ud83d\udc4b Jsem AquaPool asistent. Jak v\u00e1m mohu pomoci s baz\u00e9nem?",
     },
     {
       keywords: [
@@ -107,7 +107,7 @@
         "provozn\u00ed",
       ],
       response:
-        "M\u016f\u017eete n\u00e1s kontaktovat na tel.: +420 607 241 000, email: info@cistimebazeny.cz, nebo n\u00e1s nav\u0161tivte: L\u00e1senice 181, 378 01. Provozn\u00ed doba: Po\u2013P\u00e1 8:00\u201318:00, So 9:00\u201314:00.",
+        "M\u016f\u017eete n\u00e1s kontaktovat na tel.: +420 600 000 000, email: info@example.cz, nebo n\u00e1s nav\u0161tivte: L\u00e1senice 181, 150 00. Provozn\u00ed doba: Po\u2013P\u00e1 8:00\u201318:00, So 9:00\u201314:00.",
     },
     {
       keywords: [
@@ -127,7 +127,7 @@
     {
       keywords: [
         "chemie",
-        "chemoform",
+        "poolchem",
         "p\u0159\u00edprav",
         "chlor",
         "pH",
@@ -136,7 +136,7 @@
         "kvalit",
       ],
       response:
-        "Pou\u017e\u00edv\u00e1me v\u00fdhradn\u011b zna\u010dkovou baz\u00e9novou chemii CHEMOFORM pro nejlep\u0161\u00ed v\u00fdsledky a bezpe\u010dnost va\u0161\u00ed vody.",
+        "Pou\u017e\u00edv\u00e1me v\u00fdhradn\u011b zna\u010dkovou baz\u00e9novou chemii PoolChem Pro pro nejlep\u0161\u00ed v\u00fdsledky a bezpe\u010dnost va\u0161\u00ed vody.",
     },
     {
       keywords: [
@@ -160,12 +160,12 @@
         "n\u00e1dr\u017e",
         "reten\u010dn",
         "vodn\u00ed hospod",
-        "ekocis",
+        "vodoservis",
         "vodo",
         "\u0161acht",
       ],
       response:
-        "Dod\u00e1v\u00e1me a instalujeme produkty vodn\u00edho hospod\u00e1\u0159stv\u00ed Ekocis \u2014 \u010cOV, j\u00edmky, septiky, reten\u010dn\u00ed n\u00e1dr\u017ee, vodom\u011brn\u00e9 \u0161achty. Ceny na dotaz.",
+        "Dod\u00e1v\u00e1me a instalujeme produkty vodn\u00edho hospod\u00e1\u0159stv\u00ed VodoServis \u2014 \u010cOV, j\u00edmky, septiky, reten\u010dn\u00ed n\u00e1dr\u017ee, vodom\u011brn\u00e9 \u0161achty. Ceny na dotaz.",
     },
     {
       keywords: [
@@ -227,7 +227,7 @@
   ];
 
   var fallbackResponse =
-    "D\u011bkuji za v\u00e1\u0161 dotaz. Pro podrobn\u011bj\u0161\u00ed informace n\u00e1s pros\u00edm kontaktujte na tel. +420 607 241 000 nebo na info@cistimebazeny.cz. R\u00e1di v\u00e1m pom\u016f\u017eeme!";
+    "D\u011bkuji za v\u00e1\u0161 dotaz. Pro podrobn\u011bj\u0161\u00ed informace n\u00e1s pros\u00edm kontaktujte na tel. +420 600 000 000 nebo na info@example.cz. R\u00e1di v\u00e1m pom\u016f\u017eeme!";
 
   // ─── State ───
   var isOpen = false;
@@ -315,13 +315,13 @@
     // Panel
     panel = el("div", "ai-chat-panel");
     panel.setAttribute("role", "dialog");
-    panel.setAttribute("aria-label", "AquaServis Asistent chat");
+    panel.setAttribute("aria-label", "AquaPool Asistent chat");
 
     // Header
     var header = el("div", "ai-chat-header");
     var headerIcon = el("div", "ai-chat-header-icon", ICON_WAVES);
     var headerInfo = el("div", "ai-chat-header-info");
-    var headerTitle = el("div", "ai-chat-header-title", "AquaServis Asistent");
+    var headerTitle = el("div", "ai-chat-header-title", "AquaPool Asistent");
     var headerStatus = el("div", "ai-chat-header-status", "Online");
     headerInfo.appendChild(headerTitle);
     headerInfo.appendChild(headerStatus);
@@ -373,7 +373,7 @@
     var wTitle = el(
       "div",
       "ai-chat-welcome-title",
-      "Ahoj! Jsem v\u00e1\u0161 AquaServis asistent."
+      "Ahoj! Jsem v\u00e1\u0161 AquaPool asistent."
     );
     var wText = el(
       "div",

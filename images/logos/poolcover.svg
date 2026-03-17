@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="12" fill="#f5f3ff"/>
+  <rect x="12" y="12" width="36" height="36" rx="10" fill="#7c3aed"/>
+  <path d="M22 38 L30 20 L38 38" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M25 38h10" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <path d="M26 32h8" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+  <text x="58" y="28" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700" fill="#5b21b6">Pool</text>
+  <text x="93" y="28" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="400" fill="#7c3aed">Cover</text>
+  <text x="137" y="28" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="300" fill="#a78bfa">CZ</text>
+  <text x="58" y="44" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" letter-spacing="0.1em" fill="#64748b">ZASTŘEŠENÍ</text>
+</svg>

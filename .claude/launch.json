@@ -2,13 +2,13 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "aquaservis-dev",
+      "name": "aquapool-dev",
       "runtimeExecutable": "node",
       "runtimeArgs": ["node_modules/.bin/serve", ".", "-l", "8890", "--no-clipboard", "--cors"],
       "port": 8890
     },
     {
-      "name": "aquaservis-netlify",
+      "name": "aquapool-netlify",
       "runtimeExecutable": "netlify",
       "runtimeArgs": ["dev", "--dir", ".", "--port", "8888"],
       "port": 8888

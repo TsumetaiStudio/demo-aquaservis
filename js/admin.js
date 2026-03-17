@@ -334,7 +334,7 @@
         if (el) el.innerHTML = html || '';
     }
 
-    var POST_KEY = 'aquaservis_posts';
+    var POST_KEY = 'aquapool_posts';
     var editingPostId = null;
 
     var DEFAULT_POSTS = [
@@ -346,7 +346,7 @@
             content: 'Blíží se bazénová sezóna a je čas připravit váš bazén na léto. V tomto článku vám přinášíme kompletní průvodce jarním zprovozněním.\n\nPrvním krokem je důkladná kontrola filtračního systému. Zkontrolujte stav filtračního písku a případně ho vyměňte. Doporučujeme výměnu každé 3–4 roky.\n\nDalším krokem je napuštění bazénu čistou vodou a úprava chemie. Změřte pH hodnotu (ideálně 7,0–7,4) a hladinu chloru. Nezapomeňte na šokovou chloraci při prvním napuštění.\n\nPokud si nejste jisti, kontaktujte nás — rádi vám s jarním zprovozněním pomůžeme!',
             category: 'tipy',
             imageUrl: '',
-            author: 'Admin WebZitra',
+            author: 'Redakce AquaPool',
             status: 'published',
             newsletterSent: true,
             createdAt: '2026-03-01T10:00:00.000Z',
@@ -360,7 +360,7 @@
             content: 'S radostí oznamujeme, že od března 2026 nabízíme kompletní služby v oblasti tepelných čerpadel pro bazény.\n\nTepelné čerpadlo je nejefektivnější způsob ohřevu bazénové vody. Na každou investovanou kWh elektrické energie získáte 4–6 kWh tepla.\n\nNabízíme instalaci, servis i poradenství při výběru správného modelu pro váš bazén. Pracujeme s ověřenými značkami a poskytujeme záruku na všechny instalace.\n\nKontaktujte nás pro nezávaznou konzultaci a cenovou nabídku.',
             category: 'novinky',
             imageUrl: '',
-            author: 'Admin WebZitra',
+            author: 'Redakce AquaPool',
             status: 'published',
             newsletterSent: true,
             createdAt: '2026-02-15T09:00:00.000Z',
@@ -374,7 +374,7 @@
             content: 'Připravte se na léto včas! Do konce dubna 2026 nabízíme 20% slevu na kompletní čištění bazénů.\n\nAkce zahrnuje:\n— Vysátí dna a stěn bazénu\n— Čištění vodní linky\n— Kontrola a čištění filtrace\n— Úprava chemie vody\n— Vizuální kontrola technologie\n\nAkci lze kombinovat s jarním zprovozněním. Objednejte se ještě dnes — kapacita je omezená!',
             category: 'akce',
             imageUrl: '',
-            author: 'Admin WebZitra',
+            author: 'Redakce AquaPool',
             status: 'published',
             newsletterSent: false,
             createdAt: '2026-02-01T08:00:00.000Z',
@@ -928,7 +928,7 @@
         var postCount = getPostsFromStorage().length;
         var galleryCount = 0;
         try {
-            var gData = localStorage.getItem('aquaservis_gallery');
+            var gData = localStorage.getItem('aquapool_gallery');
             galleryCount = gData ? JSON.parse(gData).length : 0;
         } catch (e) {}
 
@@ -1020,7 +1020,7 @@
     //  GALERIE — CRUD
     // ═══════════════════════════════════════════
 
-    var GALLERY_KEY = 'aquaservis_gallery';
+    var GALLERY_KEY = 'aquapool_gallery';
 
     function getGalleryFromStorage() {
         try {
@@ -1052,7 +1052,7 @@
         { id: 's11', src: 'images/gallery/bazen-04.jpg', alt: 'Instalace bazénové technologie', category: 'bazeny', source: 'static' },
         { id: 's12', src: 'images/gallery/bazen-05.jpg', alt: 'Hotový bazén – naše realizace', category: 'bazeny', source: 'static' },
         { id: 's13', src: 'images/gallery/bazen-06.jpg', alt: 'Bazén na klíč – kompletní dodávka', category: 'bazeny', source: 'static' },
-        { id: 's14', src: 'images/gallery/zastreseni-01.jpg', alt: 'Zastřešení bazénu Alukov – nízký profil', category: 'zastreseni', source: 'static' },
+        { id: 's14', src: 'images/gallery/zastreseni-01.jpg', alt: 'Zastřešení bazénu PoolCover CZ – nízký profil', category: 'zastreseni', source: 'static' },
         { id: 's15', src: 'images/gallery/zastreseni-02.jpg', alt: 'Zastřešení bazénu – ochrana a komfort', category: 'zastreseni', source: 'static' },
         { id: 's16', src: 'images/gallery/zastreseni-03.jpg', alt: 'Nízké zastřešení bazénu Viva – antracit', category: 'zastreseni', source: 'static' },
         { id: 's17', src: 'images/gallery/zastreseni-04.jpg', alt: 'Zastřešení bazénu Imperia Neo – moderní design', category: 'zastreseni', source: 'static' },
@@ -1083,16 +1083,16 @@
         { id: 's42', src: 'images/gallery/cov-02.png', alt: 'Čistírna odpadních vod – kompresor a ventily', category: 'vodni-hospodarstvi', source: 'static' },
         { id: 's43', src: 'images/gallery/cov-03.png', alt: 'Čistírna odpadních vod – vzduchové ventily', category: 'vodni-hospodarstvi', source: 'static' },
         { id: 's44', src: 'images/gallery/cov-04.png', alt: 'Čistírna odpadních vod – detail dmychadla', category: 'vodni-hospodarstvi', source: 'static' },
-        { id: 's45', src: 'images/gallery/ekocis-01.jpg', alt: 'Ekocis – plastová jímka výroba', category: 'vodni-hospodarstvi', source: 'static' },
-        { id: 's46', src: 'images/gallery/ekocis-02.jpg', alt: 'Ekocis – plastové nádrže ve výrobě', category: 'vodni-hospodarstvi', source: 'static' },
-        { id: 's47', src: 'images/gallery/ekocis-03.jpg', alt: 'Ekocis – vodoměrná šachta', category: 'vodni-hospodarstvi', source: 'static' },
-        { id: 's48', src: 'images/gallery/ekocis-04.jpg', alt: 'Ekocis – septik a potrubí', category: 'vodni-hospodarstvi', source: 'static' },
-        { id: 's49', src: 'images/gallery/ekocis-05.jpg', alt: 'Ekocis – retenční nádrž', category: 'vodni-hospodarstvi', source: 'static' },
-        { id: 's50', src: 'images/gallery/ekocis-06.jpg', alt: 'Ekocis – detail plastové nádrže', category: 'vodni-hospodarstvi', source: 'static' },
-        { id: 's51', src: 'images/gallery/ekocis-07.jpg', alt: 'Ekocis – skladování nádrží', category: 'vodni-hospodarstvi', source: 'static' },
-        { id: 's52', src: 'images/gallery/ekocis-08.jpg', alt: 'Ekocis – výrobní hala s nádržemi', category: 'vodni-hospodarstvi', source: 'static' },
-        { id: 's53', src: 'images/gallery/ekocis-09.jpg', alt: 'Ekocis – přepravní příprava nádrží', category: 'vodni-hospodarstvi', source: 'static' },
-        { id: 's54', src: 'images/gallery/ekocis-10.jpg', alt: 'Ekocis – hotové nádrže k expedici', category: 'vodni-hospodarstvi', source: 'static' }
+        { id: 's45', src: 'images/gallery/vodoservis-01.jpg', alt: 'VodoServis – plastová jímka výroba', category: 'vodni-hospodarstvi', source: 'static' },
+        { id: 's46', src: 'images/gallery/vodoservis-02.jpg', alt: 'VodoServis – plastové nádrže ve výrobě', category: 'vodni-hospodarstvi', source: 'static' },
+        { id: 's47', src: 'images/gallery/vodoservis-03.jpg', alt: 'VodoServis – vodoměrná šachta', category: 'vodni-hospodarstvi', source: 'static' },
+        { id: 's48', src: 'images/gallery/vodoservis-04.jpg', alt: 'VodoServis – septik a potrubí', category: 'vodni-hospodarstvi', source: 'static' },
+        { id: 's49', src: 'images/gallery/vodoservis-05.jpg', alt: 'VodoServis – retenční nádrž', category: 'vodni-hospodarstvi', source: 'static' },
+        { id: 's50', src: 'images/gallery/vodoservis-06.jpg', alt: 'VodoServis – detail plastové nádrže', category: 'vodni-hospodarstvi', source: 'static' },
+        { id: 's51', src: 'images/gallery/vodoservis-07.jpg', alt: 'VodoServis – skladování nádrží', category: 'vodni-hospodarstvi', source: 'static' },
+        { id: 's52', src: 'images/gallery/vodoservis-08.jpg', alt: 'VodoServis – výrobní hala s nádržemi', category: 'vodni-hospodarstvi', source: 'static' },
+        { id: 's53', src: 'images/gallery/vodoservis-09.jpg', alt: 'VodoServis – přepravní příprava nádrží', category: 'vodni-hospodarstvi', source: 'static' },
+        { id: 's54', src: 'images/gallery/vodoservis-10.jpg', alt: 'VodoServis – hotové nádrže k expedici', category: 'vodni-hospodarstvi', source: 'static' }
     ];
 
     var CATEGORY_LABELS = {
@@ -1114,7 +1114,7 @@
         // Merge: check for alt text overrides in localStorage
         var altOverrides = {};
         try {
-            var stored = localStorage.getItem('aquaservis_gallery_alts');
+            var stored = localStorage.getItem('aquapool_gallery_alts');
             if (stored) altOverrides = JSON.parse(stored);
         } catch(e) {}
 
@@ -1129,15 +1129,15 @@
     function generateSEOAlt(category, fileName) {
         var catLabel = CATEGORY_LABELS[category] || category;
         var templates = {
-            'cisteni': 'Profesionální čištění bazénu – {detail} | AquaServis Praha',
-            'bazeny': 'Realizace bazénu – {detail} | AquaServis Praha',
-            'zastreseni': 'Zastřešení bazénu – {detail} | AquaServis Praha',
-            'realizace': 'Montáž a instalace bazénu – {detail} | AquaServis Praha',
-            'vodni-hospodarstvi': 'Vodní hospodářství – {detail} | AquaServis Praha'
+            'cisteni': 'Profesionální čištění bazénu – {detail} | AquaPool Demo',
+            'bazeny': 'Realizace bazénu – {detail} | AquaPool Demo',
+            'zastreseni': 'Zastřešení bazénu – {detail} | AquaPool Demo',
+            'realizace': 'Montáž a instalace bazénu – {detail} | AquaPool Demo',
+            'vodni-hospodarstvi': 'Vodní hospodářství – {detail} | AquaPool Demo'
         };
         var detail = fileName.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ').replace(/\d+/g, '').trim();
         if (!detail) detail = catLabel.toLowerCase();
-        var template = templates[category] || '{detail} | AquaServis Praha';
+        var template = templates[category] || '{detail} | AquaPool Demo';
         return template.replace('{detail}', detail.charAt(0).toUpperCase() + detail.slice(1));
     }
 
@@ -1179,7 +1179,7 @@
             var isStatic = item.source === 'static';
             html += '<div class="admin-gallery-item" data-gallery-src="' + escapeHTML(item.src) + '">'
                 + '<img src="' + escapeHTML(item.src) + '" alt="' + escapeHTML(item.alt || '') + '" loading="lazy">'
-                + (item.alt && item.alt.indexOf('AquaServis') > -1 ? '<span class="admin-gallery-seo-badge">SEO</span>' : '')
+                + (item.alt && item.alt.indexOf('AquaPool') > -1 ? '<span class="admin-gallery-seo-badge">SEO</span>' : '')
                 + '<div class="admin-gallery-overlay">'
                 + '<div class="admin-gallery-overlay-cat">' + escapeHTML(CATEGORY_LABELS[item.category] || item.category) + '</div>'
                 + '<div class="admin-gallery-overlay-text">' + escapeHTML(item.alt || 'Bez popisu') + '</div>'
@@ -1338,11 +1338,11 @@
                 // Save alt override in localStorage
                 var altOverrides = {};
                 try {
-                    var stored = localStorage.getItem('aquaservis_gallery_alts');
+                    var stored = localStorage.getItem('aquapool_gallery_alts');
                     if (stored) altOverrides = JSON.parse(stored);
                 } catch(e) {}
                 altOverrides[item.src] = newAlt;
-                try { localStorage.setItem('aquaservis_gallery_alts', JSON.stringify(altOverrides)); } catch(e) {}
+                try { localStorage.setItem('aquapool_gallery_alts', JSON.stringify(altOverrides)); } catch(e) {}
             } else {
                 // Update uploaded item
                 var items = getGalleryFromStorage();
@@ -1362,15 +1362,15 @@
     // ═══════════════════════════════════════════
 
     var CUSTOMERS_DATA = [
-        { id: 1, name: 'Martin Novák', email: 'martin.novak@email.cz', phone: '+420 607 241 001', address: 'Zahradní 15, Praha 4', newsletter: true, status: 'Aktivní', lastActivity: '5. 3. 2026', registered: '12. 1. 2024', note: 'Celoroční zákazník, preferuje ranní termíny.' },
+        { id: 1, name: 'Jan Novotný', email: 'jan.novotny@example.cz', phone: '+420 600 000 001', address: 'Příkladní 15, Praha 6', newsletter: true, status: 'Aktivní', lastActivity: '5. 3. 2026', registered: '12. 1. 2024', note: 'Celoroční zákazník, preferuje ranní termíny.' },
         { id: 2, name: 'Jana Svobodová', email: 'jana.s@email.cz', phone: '+420 608 332 112', address: 'Lipová 8, Praha 6', newsletter: true, status: 'Aktivní', lastActivity: '4. 3. 2026', registered: '3. 5. 2024', note: 'Bazén 8x4m, filtrace Hayward.' },
         { id: 3, name: 'Petr Dvořák', email: 'petr.dvorak@email.cz', phone: '+420 773 445 220', address: 'U Lesa 22, Říčany', newsletter: false, status: 'Aktivní', lastActivity: '3. 3. 2026', registered: '18. 3. 2025', note: '' },
         { id: 4, name: 'Lucie Horáková', email: 'lucie.h@email.cz', phone: '+420 602 789 003', address: 'Květinová 3, Černošice', newsletter: true, status: 'Čekající', lastActivity: '1. 3. 2026', registered: '20. 2. 2026', note: 'Zájem o bazén na klíč.' },
         { id: 5, name: 'Tomáš Marek', email: 't.marek@firma.cz', phone: '+420 604 112 987', address: 'Průmyslová 44, Beroun', newsletter: false, status: 'Neaktivní', lastActivity: '15. 11. 2025', registered: '1. 6. 2024', note: 'Firemní bazén, fakturace na IČ.' }
     ];
 
-    var ORDERS_KEY = 'aquaservis_orders';
-    var INVOICES_KEY = 'aquaservis_invoices';
+    var ORDERS_KEY = 'aquapool_orders';
+    var INVOICES_KEY = 'aquapool_invoices';
 
     var DEFAULT_ORDERS = [
         { id: 'AQ-2026-047', customerId: 1, service: 'Pravidelné čištění bazénu', date: '5. 3. 2026', status: 'Dokončeno', price: 3200 },
@@ -1792,7 +1792,7 @@
     //  MESSAGES (ZPRÁVY) PANEL
     // ═══════════════════════════════════════════
 
-    var MESSAGES_KEY = 'aquaservis_messages';
+    var MESSAGES_KEY = 'aquapool_messages';
 
     function getMessagesFromStorage() {
         try {
@@ -1857,7 +1857,7 @@
                 'tepelna-cerpadla': 'Tepelné čerpadlo',
                 'chlorace': 'Automatická chlorace',
                 'chemie': 'Bazénová chemie',
-                'ekocis': 'Vodní program Ekocis',
+                'vodoservis': 'Vodní program VodoServis',
                 'jine': 'Jiné'
             };
             var serviceName = serviceLabels[m.service] || m.service || 'Nezvoleno';
@@ -1949,7 +1949,7 @@
     //  SETTINGS PANEL
     // ═══════════════════════════════════════════
 
-    var SETTINGS_KEY = 'aquaservis_settings';
+    var SETTINGS_KEY = 'aquapool_settings';
 
     function getSettings() {
         try {
@@ -1957,12 +1957,12 @@
             if (stored) return JSON.parse(stored);
         } catch(e) {}
         return {
-            name: 'Admin AquaServis',
-            email: 'admin@cistimebazeny.cz',
+            name: 'Admin AquaPool',
+            email: 'admin@example.cz',
             phone: '+420 777 888 999',
-            webName: 'AquaServis Praha',
+            webName: 'AquaPool Demo',
             webDesc: 'Profesionální servis bazénů, zastřešení a vodní hospodářství',
-            webEmail: 'info@aquaservis.cz',
+            webEmail: 'info@example.cz',
             webPhone: '+420 123 456 789',
             emailNotif: true,
             orderNotif: true
@@ -2043,14 +2043,14 @@
                 orders: getOrdersData(),
                 invoices: getInvoicesData(),
                 messages: getMessagesFromStorage(),
-                gallery_alts: (function() { try { return JSON.parse(localStorage.getItem('aquaservis_gallery_alts') || '{}'); } catch(e) { return {}; } })(),
+                gallery_alts: (function() { try { return JSON.parse(localStorage.getItem('aquapool_gallery_alts') || '{}'); } catch(e) { return {}; } })(),
                 exportedAt: new Date().toISOString()
             };
             var blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
             var url = URL.createObjectURL(blob);
             var a = document.createElement('a');
             a.href = url;
-            a.download = 'aquaservis-export-' + new Date().toISOString().slice(0,10) + '.json';
+            a.download = 'aquapool-export-' + new Date().toISOString().slice(0,10) + '.json';
             a.click();
             URL.revokeObjectURL(url);
             showAdminToast('Data exportována.', 'success');
@@ -2062,7 +2062,7 @@
     if (resetBtn) {
         resetBtn.addEventListener('click', function() {
             if (!confirm('Opravdu chcete resetovat všechna demo data? Tato akce je nevratná.')) return;
-            ['aquaservis_orders', 'aquaservis_invoices', 'aquaservis_messages', 'aquaservis_posts', 'aquaservis_gallery', 'aquaservis_gallery_alts', 'aquaservis_settings', 'aquaservis_ai_history'].forEach(function(key) {
+            ['aquapool_orders', 'aquapool_invoices', 'aquapool_messages', 'aquapool_posts', 'aquapool_gallery', 'aquapool_gallery_alts', 'aquapool_settings', 'aquapool_ai_history'].forEach(function(key) {
                 localStorage.removeItem(key);
             });
             showAdminToast('Demo data resetována. Stránka se obnoví.', 'info');

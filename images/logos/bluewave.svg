@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="none">
+  <rect width="200" height="60" rx="12" fill="#eff6ff"/>
+  <circle cx="30" cy="30" r="18" fill="#2563eb"/>
+  <path d="M20 32c3-4.5 6-4.5 9 0s6 4.5 9 0" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M20 26c3-4.5 6-4.5 9 0s6 4.5 9 0" stroke="white" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <text x="58" y="28" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="700" fill="#1e40af">Blue</text>
+  <text x="95" y="28" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="400" fill="#3b82f6">Wave</text>
+  <text x="58" y="44" font-family="Inter, system-ui, sans-serif" font-size="9" font-weight="500" letter-spacing="0.1em" fill="#64748b" text-transform="uppercase">BAZÉNOVÁ CHEMIE</text>
+</svg>

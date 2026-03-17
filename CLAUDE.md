@@ -1,8 +1,8 @@
-# CLAUDE.md — CistimeBazeny.cz / AquaServis Demo
+# CLAUDE.md — AquaPool Demo / AquaPool Demo
 
 > **Znalostní báze projektu.** Statický demo web pro bazénový servis.
-> **Klient:** Garden Servis JH s.r.o. (Jindřichův Hradec)
-> **Brand:** CistimeBazeny.cz / AquaServis
+> **Klient:** AquaPool Demo s.r.o. (Praha)
+> **Brand:** AquaPool Demo / AquaPool
 > **Typ:** Statický web (HTML/CSS/JS, bez frameworku)
 
 ---
@@ -17,7 +17,7 @@
 | Data | localStorage (users, session, settings, newsletter, chat) |
 | Icons | Inline SVG |
 | Deploy | Netlify (statický hosting) |
-| Repo | GitHub: TsumetaiStudio/demo-aquaservis |
+| Repo | GitHub: TsumetaiStudio/demo-aquapool |
 
 ## Klíčové soubory
 
@@ -74,12 +74,12 @@
 npx serve . -l 8890 --no-clipboard --cors
 
 # Nebo přes launch.json
-# Server name: aquaservis-dev (port 8890)
+# Server name: aquapool-dev (port 8890)
 ```
 
 ## Auth systém
 
-- **localStorage klíče:** `aquaservis_users`, `aquaservis_session`
+- **localStorage klíče:** `aquapool_users`, `aquapool_session`
 - **Demo účty:** Přihlašovací údaje jsou uvedeny na přihlašovací stránce (prihlaseni.html). Hesla jsou uložena jako SHA-256 hashe.
 - **Role:** `admin` → admin.html, `customer` → klientska-zona.html
 - **Globální API:** `window.AquaAuth.{init, register, login, logout, getSession, getUsers, findByEmail, isAdmin}`
@@ -104,6 +104,6 @@ npx serve . -l 8890 --no-clipboard --cors
 
 ## Netlify konfigurace
 
-- **Site name:** GardenServisJH-Demo
+- **Site name:** AquaPool-Demo
 - **Redirects:** `/* /index.html 200` (SPA fallback)
 - **Headers:** Cache-Control, X-Frame-Options, CSP

@@ -117,14 +117,14 @@
             users[idx].firstName = document.getElementById('profFirstName').value.trim();
             users[idx].lastName = document.getElementById('profLastName').value.trim();
             users[idx].phone = document.getElementById('profPhone').value.trim();
-            localStorage.setItem('aquaservis_users', JSON.stringify(users));
+            localStorage.setItem('aquapool_users', JSON.stringify(users));
 
             // Update local user reference
             user = users[idx];
 
             // Update session name
             session.name = users[idx].firstName + ' ' + users[idx].lastName;
-            localStorage.setItem('aquaservis_session', JSON.stringify(session));
+            localStorage.setItem('aquapool_session', JSON.stringify(session));
             if (clientNameEl) clientNameEl.textContent = session.name;
 
             // Reset to readonly
@@ -180,7 +180,7 @@
                             break;
                         }
                     }
-                    localStorage.setItem('aquaservis_users', JSON.stringify(users));
+                    localStorage.setItem('aquapool_users', JSON.stringify(users));
                     passwordForm.reset();
                     showToast('Heslo bylo \u00fasp\u011b\u0161n\u011b zm\u011bn\u011bno.');
                 });
@@ -253,12 +253,12 @@
     var newsletterToggle = document.getElementById('newsletterToggle');
     if (newsletterToggle) {
         // Load saved state
-        var savedNewsletter = localStorage.getItem('aquaservis_newsletter');
+        var savedNewsletter = localStorage.getItem('aquapool_newsletter');
         if (savedNewsletter === 'true') {
             newsletterToggle.checked = true;
         }
         newsletterToggle.addEventListener('change', function() {
-            localStorage.setItem('aquaservis_newsletter', this.checked ? 'true' : 'false');
+            localStorage.setItem('aquapool_newsletter', this.checked ? 'true' : 'false');
             if (this.checked) {
                 showToast('Odběr novinek byl aktivován.');
             } else {
@@ -282,11 +282,11 @@
                     filtered.push(users[i]);
                 }
             }
-            localStorage.setItem('aquaservis_users', JSON.stringify(filtered));
+            localStorage.setItem('aquapool_users', JSON.stringify(filtered));
 
             // Clear session and newsletter preference
-            localStorage.removeItem('aquaservis_session');
-            localStorage.removeItem('aquaservis_newsletter');
+            localStorage.removeItem('aquapool_session');
+            localStorage.removeItem('aquapool_newsletter');
 
             // Redirect to homepage
             window.location.href = 'index.html';

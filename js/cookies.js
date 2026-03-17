@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var COOKIE_KEY = 'aquaservis_cookies';
+    var COOKIE_KEY = 'aquapool_cookies';
 
     function hasConsent() {
         // Backwards compat: migrate old key from main.js cookie system
